@@ -3,28 +3,33 @@
 
 Книга 1 - 
 
-81 - установить в WSL:
+82 - установить в WSL (проверить версию: name -v):
 
-1 - 
+vim 
+
+nano
+
+joe 
+sudo apt install joe
+
+компилятор FreePascal (fpc или fp-compiler) 
+sudo apt install fp-compiler-3.2.2
+
+ассемблер nasm 
+sudo apt install nasm
+
+gcc - компилятор С и С++
+
+система сборки make 
+
+отладчик gdb
+sudo apt install gdb
+
+создать непревилегированную запись в linux и всю работу производить под ней 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-83
 
 
 

@@ -1,0 +1,12 @@
+папка на диске С - my_notes_leaning
+
++
+
+git add .
+
+git commit -m '01_01_2024_1'
+
+git push origin main 
+
+OlS..
+ввести токен
