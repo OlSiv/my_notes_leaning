@@ -95,6 +95,14 @@ https://getmentor.dev/mentor/aleksey-razvodov-2740
 
 
 
+Еще роадмап по DE - 
+https://github.com/halltape/HalltapeRoadmapDE
+
+Как составлять резюме - 
+https://github.com/halltape/HalltapeRoadmapDE/tree/main/Resume
+
+
+
 ******************************************************************
 
 1 -
