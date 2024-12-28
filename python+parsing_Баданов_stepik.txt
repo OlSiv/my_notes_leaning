@@ -448,6 +448,118 @@ while i <= 5:
 	i += 1
 ----
 
+--
+check = True 
+
+while check:
+    age = int(input('Enter age:   '))
+    if age == 18:
+        print('Ok')
+        check = False
+----
+
+continue - оператор продолжения (пропуска итерации)
+
+break - оператор прерывания цикла 
+
+pass - заглушка 
+
+************************************
+
+4.4 - Конструкция try/except (и осталось ещё 85 пунктов)
+
+чаще всего try/except пользуются когда ошибка возникает и нам нужно её "простить" чтобы python её пропустил 
+
+--
+a = 5
+b = 0
+print(a/b)
+print("Hello")
+----
+- будет ошибка и "Hello" напечатано не будет, и чтобы этого избежать можно предусмотреть ошибки -  
+
+--
+try:
+    num1 = int(input('Enter first number:   '))
+    num2 = int(input('Enter second number:   '))
+    result = num1 / num2
+	print(f'Result - {result}')
+except ZeroDivisionError:
+    print('No / ZERO')
+----
+
+--
+try:
+    age = int(input("Введите ваш возраст:   "))
+    print(age)
+except ValueError:
+    print("Ошибка")
+----
+
+блоков except может быть несколько 
+
+блок finally - выполняется всегда, в независимости от того, были ли ошибки или нет -
+--
+try:
+    num1 = int(input('Enter first number:   '))
+    num2 = int(input('Enter second number:   '))
+    result = num1 / num2
+	print(f'Result - {result}')
+except ZeroDivisionError:
+    print('No / ZERO')
+except ValueError:
+    print("Ошибка")
+else:
+    print(f'Результат {result}')
+finally:
+    print('Программа завершена')
+----
+- тут блок else выполняется в случае успеха try (то есть когда не обнаружено ошибок)
+
+если у нас выскакивает ошибка которую мы в первый раз видим - мы можем её расшифровать -
+--
+try:
+    num1 = int(input('Enter first number:   '))
+    num2 = int(input('Enter second number:   '))
+    result = num1 / num2
+	print(f'Result - {result}')
+except Exception as e:
+    print(e)
+----
+
+try/except часто используется для открытия файлов (если файл открылся - то ОК, если не открылся - то не ОК)
+
+пример использования try/except в цикле while для ввода числа - 
+--
+while True:
+    try:
+        num = int(input("Введите число (или 0 для выхода)"))
+        if num == 0:
+            break
+        print(f'Вы ввели число {num}')
+    except ValueError:
+        print("Ошибка, введите корректное число")
+----
+
+Основные исключения, которые будут встречаться Вам чаще всего -
+ValueError: Введено некорректное значение.
+ZeroDivisionError: Попытка деления на ноль.
+FileNotFoundError: Файл не найден.
+TypeError: Неправильный тип данных для операции.
+
+Блок try не может существовать без except или finally.
+
+************************************
+
+5.1 - Что такое изменяемые и неизменяемые типы данных?
+
+ 
+
+
+
+
+
+
 
 
 
