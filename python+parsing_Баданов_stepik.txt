@@ -2396,7 +2396,38 @@ Plotly
 
 2 -
 
-00-20
+создать новый проект в PyCharm 
+
+в терминале - 
+--
+pip install numpy 
+----
+
+--
+import numpy as np 
+
+arr = np.array([1, 2, 3, 4, 5])
+
+matrix = np.array([
+    [1, 2, 3],
+	[4, 5, 6],
+	[7, 8, 9]
+])
+
+print(arr * 2)
+print(matrix * 2)
+
+
+
+
+
+
+
+
+
+2-45
+
+
 
 
 
