@@ -905,7 +905,8 @@ https://www.youtube.com/watch?v=2G1ZiIzI8wo&t=541s - видео-инструкц
 
 https://investinperm.ru/upload/iblock/332/m0t4sj34dlt5k5is5vyp780lzi2aldpi.pdf текстовая инструкция по работе с yougile
 
-https://www.atlassian.com/ru/software/jira/guides/getting-started/basics?tab=#step-1-create-a-project - Обновленный официальный гайд по Jira
+https://www.atlassian.com/ru/software/jira/guides/getting-started/basics?tab=#step-1-create-a-project 
+- Обновленный официальный гайд по Jira
 
 https://youtu.be/TeckTCITenI - минимальный набор знаний, с разбором на основе реальных вакансий
 
@@ -913,13 +914,7 @@ https://youtu.be/34RcuYnHLXw - моё видео по обзору различ�
 
 В компаниях так и осталась Jira, просто не поддерживается разработчиками. Поэтому ознакомиться нужно, так как скорей всего именно с ней и будете работать в будущем
 
-https://asproagile.ru/ - отечественный аналог Jira
 
-https://ru.yougile.com/ - ещё один аналог
-
-Дополнительная инструкция https://www.atlassian.com/ru/software/jira/guides/getting-started/basics#step-1-create-a-project
-
-Выбор шаблона Scrum https://www.atlassian.com/ru/software/jira/templates/scrum
 
 
 

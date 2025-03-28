@@ -3286,7 +3286,323 @@ print(list(accumulated))
 
 13.1 - Как реализуются графические приложения на Python?
 
-===
+Графические приложения на Python можно реализовать с помощью различных библиотек, которые предоставляют средства для создания оконных интерфейсов, обработки событий и взаимодействия с пользователем. Вот основные библиотеки для создания графических интерфейсов на Python:
+
+Tkinter — это встроенная в стандартную библиотеку Python библиотека для создания простых графических интерфейсов. Она часто используется для разработки настольных приложений.
+
+Особенности Tkinter:
+- Простота и наличие в стандартной библиотеке Python.
+- Подходит для небольших и простых приложений.
+- Поддерживает создание виджетов, таких как кнопки, метки, поля ввода и т.д.
+
+Небольшой пример. Он рабочий, потому что tkinter уже есть в любой последней версии Python -
+--
+import tkinter as tk
+
+# Создание основного окна
+root = tk.Tk()
+root.title("Простое приложение")
+root.geometry("300x200")
+
+# Создание метки
+label = tk.Label(root, text="Привет, мир!")
+label.pack()
+
+# Создание кнопки
+button = tk.Button(root, text="Нажми меня", command=lambda: label.config(text="Кнопка нажата!"))
+button.pack()
+
+# Запуск основного цикла событий
+root.mainloop()
+----
+
+PyQt — это мощная библиотека для создания графических интерфейсов, основанная на библиотеке Qt. Она позволяет создавать более сложные и профессиональные приложения с множеством виджетов и функциональностью.
+
+Особенности PyQt:
+- Мощная библиотека для создания профессиональных приложений.
+- Большое количество виджетов и поддержка современных GUI.
+- Поддерживает мультимедиа, графику и 3D.
+- Требует установки (не является частью стандартной библиотеки Python)
+
+Kivy — это библиотека для создания мультитач-приложений с поддержкой кросс-платформенности (Windows, macOS, Linux, Android, iOS). Она используется для создания интерактивных приложений и игр -
+--
+from kivy.app import App
+from kivy.uix.button import Button
+
+class MyApp(App):
+    def build(self):
+        return Button(text="Нажми меня", on_press=self.on_button_press)
+
+    def on_button_press(self, instance):
+        instance.text = "Кнопка нажата!"
+
+# Запуск приложения
+if __name__ == "__main__":
+    MyApp().run()
+----
+- для этого библиотеку нужно установить. Правой кнопкой мыши нажимаете на kivy в коде и нажимаете кнопку install package kivy
+
+Особенности Kivy:
+- Поддержка сенсорного ввода и мультитач.
+- Легкость создания кросс-платформенных приложений.
+- Подходит для создания мобильных приложений и игр.
+- Не входит в стандартную библиотеку Python.
+
+wxPython — это обертка для библиотеки wxWidgets, которая позволяет создавать кросс-платформенные приложения с нативным интерфейсом для Windows, macOS и Linux
+
+Особенности wxPython:
+- Поддержка кросс-платформенных нативных приложений.
+- Позволяет создавать сложные пользовательские интерфейсы.
+- Требует установки (не входит в стандартную библиотеку Python)
+
+PyGame используется для создания игр, но также может применяться для создания простых графических интерфейсов. Она поддерживает мультимедиа, графику, анимацию и работу с пользовательским вводом.
+
+Опять же, правой кнопкой мыши по библиотеке - и скачиваем библиотеку -
+--
+import pygame
+
+# Инициализация PyGame
+pygame.init()
+
+# Установка размеров окна
+screen = pygame.display.set_mode((400, 300))
+pygame.display.set_caption("Простое приложение на PyGame")
+
+# Основной цикл приложения
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    screen.fill((0, 0, 0))  # Заполняем экран черным цветом
+    pygame.display.flip()    # Обновляем экран
+
+# Завершение работы
+pygame.quit()
+----
+
+код игры "змейка" - 
+--
+import pygame
+import random
+import time
+
+
+pygame.init()
+
+# Определяем цвета
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+RED = (213, 50, 80)
+GREEN = (0, 255, 0)
+BLUE = (50, 153, 213)
+
+# Размеры экрана
+WIDTH = 600
+HEIGHT = 400
+
+# Размер одного блока змейки
+BLOCK_SIZE = 20
+
+# Установка экрана
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption('Змейка')
+
+# Установка времени обновления игры
+clock = pygame.time.Clock()
+SNAKE_SPEED = 15
+
+# Шрифт для отображения текста
+font_style = pygame.font.SysFont("bahnschrift", 25)
+score_font = pygame.font.SysFont("comicsansms", 35)
+
+# Функция отображения счета
+def display_score(score):
+    value = score_font.render("Счет: " + str(score), True, WHITE)
+    screen.blit(value, [0, 0])
+
+# Функция отображения сообщения
+def display_message(msg, color):
+    mesg = font_style.render(msg, True, color)
+    screen.blit(mesg, [WIDTH / 6, HEIGHT / 3])
+
+# Основная игра
+def game_loop():
+    game_over = False
+    game_close = False
+
+    # Начальные координаты змейки
+    x = WIDTH / 2
+    y = HEIGHT / 2
+
+    # Направление змейки
+    x_change = 0
+    y_change = 0
+
+    # Тело змейки
+    snake = []
+    snake_length = 1
+
+    # Координаты еды
+    food_x = round(random.randrange(0, WIDTH - BLOCK_SIZE) / BLOCK_SIZE) * BLOCK_SIZE
+    food_y = round(random.randrange(0, HEIGHT - BLOCK_SIZE) / BLOCK_SIZE) * BLOCK_SIZE
+
+    # Основной цикл игры
+    while not game_over:
+
+        while game_close:
+            screen.fill(BLUE)
+            display_message("Проигрыш! Нажмите Q - выйти или C - играть снова", RED)
+            display_score(snake_length - 1)
+            pygame.display.update()
+
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_q:
+                        game_over = True
+                        game_close = False
+                    if event.key == pygame.K_c:
+                        game_loop()
+
+        # Обработка нажатий клавиш
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                game_over = True
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    x_change = -BLOCK_SIZE
+                    y_change = 0
+                elif event.key == pygame.K_RIGHT:
+                    x_change = BLOCK_SIZE
+                    y_change = 0
+                elif event.key == pygame.K_UP:
+                    y_change = -BLOCK_SIZE
+                    x_change = 0
+                elif event.key == pygame.K_DOWN:
+                    y_change = BLOCK_SIZE
+                    x_change = 0
+
+        # Обновление положения змейки
+        if x >= WIDTH or x < 0 or y >= HEIGHT or y < 0:
+            game_close = True
+        x += x_change
+        y += y_change
+
+        screen.fill(BLACK)
+        pygame.draw.rect(screen, GREEN, [food_x, food_y, BLOCK_SIZE, BLOCK_SIZE])
+
+        # Обновление тела змейки
+        snake_head = []
+        snake_head.append(x)
+        snake_head.append(y)
+        snake.append(snake_head)
+        if len(snake) > snake_length:
+            del snake[0]
+
+        # Проверка на столкновение с самим собой
+        for segment in snake[:-1]:
+            if segment == snake_head:
+                game_close = True
+
+        # Рисуем змейку
+        for segment in snake:
+            pygame.draw.rect(screen, WHITE, [segment[0], segment[1], BLOCK_SIZE, BLOCK_SIZE])
+
+        display_score(snake_length - 1)
+
+        pygame.display.update()
+
+        # Если змейка съела еду
+        if x == food_x and y == food_y:
+            food_x = round(random.randrange(0, WIDTH - BLOCK_SIZE) / BLOCK_SIZE) * BLOCK_SIZE
+            food_y = round(random.randrange(0, HEIGHT - BLOCK_SIZE) / BLOCK_SIZE) * BLOCK_SIZE
+            snake_length += 1
+
+        # Устанавливаем скорость игры
+        clock.tick(SNAKE_SPEED)
+
+    # Завершаем работу pygame
+    pygame.quit()
+    quit()
+
+# Запуск игры
+game_loop()
+----
+
+Особенности PyGame:
+- Изначально предназначена для создания игр.
+- Поддержка работы с графикой, звуком, анимацией и пользовательским вводом.
+- Подходит для создания игр и мультимедийных приложений
+
+************************************
+
+13.2 - Введение в PyQT5
+
+PyQt5 — это набор привязок для языка Python, которые позволяют взаимодействовать с библиотекой Qt для создания графических пользовательских интерфейсов (GUI). PyQt5 является одной из наиболее популярных библиотек для создания кросс-платформенных приложений на Python с графическим интерфейсом. Qt — это мощная библиотека, используемая для разработки настольных и мобильных приложений с поддержкой интерфейсов, мультимедиа, 3D-графики и многого другого.
+
+Почему PyQT5? Честно - потому что очень много документации, большое комьюнити + кроссплатформенность.
+У многих из-за особенностей операционной системы может не работать версия PyQt5, по крайней мере так показывает практика. Но при этом с PyQt6 у Вас вероятно проблем не будет. Разницы Вы не заметите, но PyQt5 мне нравится больше. Код будет приложен для обоих версий.
+
+Перейдем в PyCharm и установим PyQt, если у Вас -
+
+5 версия - 
+--
+​​​​​​​pip install PyQt5
+----
+
+6 версия - 
+--
+​​​​​​​pip install PyQt6
+----
+
+разницы Вы не заметите, можете хоть 2 версии себе установить
+
+--
+import sys
+from PyQt5.QtWidgets import QApplication, QPushButton, QLabel, QVBoxLayout, QWidget
+
+app = QApplication(sys.argv)
+
+window = QWidget()
+window.setWindowTitle("Простое приложение")
+
+layout = QVBoxLayout()
+
+label = QLabel("Привет, мир!")
+button = QPushButton("Нажми меня")
+button.clicked.connect(lambda: label.setText("Кнопка нажата!"))
+
+layout.addWidget(label)
+layout.addWidget(button)
+
+window.setLayout(layout)
+window.show()
+
+sys.exit(app.exec())
+----
+
+************************************
+
+13.3 - 
+
+Окна в графических приложениях — это базовые элементы, которые предоставляют пользователю интерфейс для взаимодействия с программой. Они могут содержать различную информацию и элементы управления, но само окно выступает как основа для отображения этой информации.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
