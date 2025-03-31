@@ -3911,8 +3911,47 @@ sys.exit(app.exec())
 
 Ну и комбинированный layout -
 --
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout, QHBoxLayout
+
+app = QApplication(sys.argv)
+
+window = QWidget()
+window.setWindowTitle("Combined Layout with QLabel Example")
 
 
+main_layout = QVBoxLayout()
+
+# Горизонтальный layout 1
+layout1 = QHBoxLayout()
+label1 = QLabel("Label 1")
+label2 = QLabel("Label 2")
+layout1.addWidget(label1)
+layout1.addWidget(label2)
+
+# Горизонтальный layout 2
+layout2 = QHBoxLayout()
+label3 = QLabel("Label 3")
+label4 = QLabel("Label 4")
+layout2.addWidget(label3)
+layout2.addWidget(label4)
+
+# Добавляем горизонтальные layout'ы в основной вертикальный layout
+main_layout.addLayout(layout1)
+main_layout.addLayout(layout2)
+
+window.setLayout(main_layout)
+window.show()
+
+sys.exit(app.exec())
+----
+- создаем вертикальный layout и делаем его основным. На него уже натягиваем еще 2 слоя, но уже горизонтальных. То есть в рамках этих горизонтальных слоев объекты будут группироваться по горизонтали, а горизонтальные слои будут выравниваться по вертикали, все слои и группировки работают вне зависимости от масштаба
+
+************************************
+
+13.5 - Как работать с кнопками? Виды кнопок
+
+=
 
 
 
