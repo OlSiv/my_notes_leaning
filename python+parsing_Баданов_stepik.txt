@@ -3951,29 +3951,451 @@ sys.exit(app.exec())
 
 13.5 - Как работать с кнопками? Виды кнопок
 
-=
+В PyQt5 кнопка — это элемент управления, представленный классом QPushButton. Она используется для выполнения определенных действий в графическом интерфейсе, когда пользователь на неё нажимает. Кнопки — это основные интерактивные элементы, которые могут запускать различные функции или операции по клику.
+
+Текст и иконки: Кнопка может отображать текст, иконку или и то и другое. Это позволяет легко создавать кнопки с визуальными подсказками.
+
+Сигналы и слоты: Кнопки в PyQt5 используют механизм сигналов и слотов для обработки событий. Когда пользователь нажимает на кнопку, генерируется сигнал clicked(), который можно связать с определенной функцией.
+
+Настраиваемый внешний вид: Кнопки могут быть стилизованы с помощью CSS, чтобы изменить их цвет, размер, шрифт и т.д.
+
+Функциональные возможности: Кнопку можно сделать неактивной, скрыть или заблокировать на время выполнения каких-либо операций.
+
+Давайте рассмотрим пример самой простой кнопки, потом посмотрим, что с ней можно сделать и поглядим на другие виды кнопок. Первое - это QPushButton -
+--
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton
+
+app = QApplication([])
+
+# Создание окна
+window = QWidget()
+window.setWindowTitle("Button Example")
+
+# Создание кнопки
+button = QPushButton("Click Me", window)
+button.setGeometry(100, 100, 200, 40)  # Установка позиции и размера кнопки
+
+# Отображение окна
+window.show()
+app.exec()
+----
+
+Если кликать на кнопку, то ничего не происходит. Давайте это исправим. Будем выводить сообщение в терминал в PyCharm, когда на кнопку будут тыкать.
+
+Создадим функцию on_button_click, которая просто выводит текст в терминал -
+--
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton
+
+def on_button_click():
+    print("Button was clicked!")
+
+app = QApplication(sys.argv)
+
+# Создание окна
+window = QWidget()
+window.setWindowTitle("Button Click Example")
+
+# Создание кнопки
+button = QPushButton("Click Me", window)
+button.setGeometry(100, 100, 200, 40)
+
+# Связь сигнала с функцией
+button.clicked.connect(on_button_click)
+
+# Отображение окна
+window.show()
+
+sys.exit(app.exec())
+----
+- тут связываем функцию и кнопку, посредством кода - 
+--
+button.clicked.connect(on_button_click)
+----
+
+Соответсвенно по кусочкам -
+- button - не служебное слово, а название нашей кнопки. 
+- clicked - означает, что на кнопку нажали
+- connect - функция, которая соединяет нажатие с тем, что должно произойти
+
+текст будет выводиться в терминале, сколько кликов - столько раз и будет выведен в терминал текст
+
+и рассмотрим и другие виды кнопок, которые предлагает нам PyQt5 - 
+
+--- QCheckBox (Флажок)
+
+Это кнопка с переключателем, которая может быть установлена (выбрана) или сброшена (не выбрана). Используется для выбора "Да" или "Нет" в форме, или для выбора нескольких опций одновременно -
+--
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QCheckBox, QVBoxLayout
+
+def on_checkbox_state_change():
+    if checkbox.isChecked():
+        print("Checked")
+    else:
+        print("Unchecked")
+
+app = QApplication(sys.argv)
+
+window = QWidget()
+window.setWindowTitle("QCheckBox Example")
+
+layout = QVBoxLayout()
+
+checkbox = QCheckBox("Option 1")
+checkbox.stateChanged.connect(on_checkbox_state_change)
+
+layout.addWidget(checkbox)
+window.setLayout(layout)
+
+window.show()
+sys.exit(app.exec())
+---
+- checkbox isChecked - это проверка того, нажали ли на кнопку, а если нажали, то произойдет вывод в терминал.
+
+--
+checkbox = QCheckBox("Option 1")
+----
+- это создание кнопки.
+
+--- QRadioButton (Радиокнопка)
+
+Радиокнопки используются, когда из набора опций можно выбрать только одну. Радиокнопки обычно группируются, и только одна из них может быть выбрана в группе -
+--
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QRadioButton, QVBoxLayout
+
+def on_radio_button_selected():
+    if radio_button1.isChecked():
+        print("Option 1 selected")
+    elif radio_button2.isChecked():
+        print("Option 2 selected")
+
+app = QApplication(sys.argv)
+
+window = QWidget()
+window.setWindowTitle("QRadioButton Example")
+
+layout = QVBoxLayout()
+
+radio_button1 = QRadioButton("Option 1")
+radio_button2 = QRadioButton("Option 2")
+
+radio_button1.toggled.connect(on_radio_button_selected)
+radio_button2.toggled.connect(on_radio_button_selected)
+
+layout.addWidget(radio_button1)
+layout.addWidget(radio_button2)
+
+window.setLayout(layout)
+window.show()
+sys.exit(app.exec())
+----
+
+************************************
+
+13.6 - Что такое виджеты?
+
+Виджеты в PyQt5 — это графические элементы интерфейса пользователя (GUI), которые можно использовать для создания окон, кнопок, текстовых полей, ползунков и других интерактивных компонентов. Виджеты представляют собой основную строительную часть любого графического интерфейса в PyQt5, и все элементы управления, такие как кнопки или поля ввода, являются виджетами.
+
+Основные виджеты PyQt5:
+- QWidget: Базовый класс для всех виджетов. Его мы уже рассмотрели.
+- QPushButton: Кнопка. Его мы уже рассмотрели.
+- QLabel: Метка для отображения текста или изображений. Его мы уже рассмотрели.
+- QLineEdit: Поле для ввода текста.
+- QTextEdit: Многострочное текстовое поле.
+- QCheckBox: Флажок. Его мы уже рассмотрели.
+- QRadioButton: Радиокнопка. Его мы уже рассмотрели.
+- QSlider: Ползунок для выбора значений.
+- QComboBox: Выпадающий список.
+
+Остается рассмотреть QLineEdit, QTextEdit, QSlider и QComboBox -
+
+--- QLineEdit предоставляет поле для ввода текста, которое часто используется в формах -
+--
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QLineEdit, QVBoxLayout
+
+app = QApplication(sys.argv)
+
+window = QWidget()
+window.setWindowTitle("QLineEdit Example")
+
+layout = QVBoxLayout()
+
+line_edit = QLineEdit()  # Создаем поле для ввода текста
+line_edit.setPlaceholderText("Enter your text here")  # Текст-подсказка
+
+layout.addWidget(line_edit)
+window.setLayout(layout)
+
+window.show()
+sys.exit(app.exec())
+----
+
+--- QTextEdit в PyQt5 — это виджет для многострочного текстового редактирования, который позволяет пользователю вводить, редактировать и форматировать текст. В отличие от QLineEdit, который ограничен одной строкой текста, QTextEdit поддерживает несколько строк и различные форматы текста (например, жирный шрифт, курсив, подчеркивание) -
+--
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout
+
+app = QApplication(sys.argv)
+
+window = QWidget()
+window.setWindowTitle("QTextEdit Example")
+
+layout = QVBoxLayout()
+
+# Создаем виджет QTextEdit
+text_edit = QTextEdit()
+text_edit.setPlaceholderText("Enter your text here...")
+
+# Добавляем текстовое поле в макет
+layout.addWidget(text_edit)
+
+window.setLayout(layout)
+window.show()
+sys.exit(app.exec())
+----
+
+также пример с HTML, все для того же QTextEdit -
+--
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout
+
+app = QApplication(sys.argv)
+
+window = QWidget()
+window.setWindowTitle("QTextEdit HTML Example")
+
+layout = QVBoxLayout()
+
+# Создаем виджет QTextEdit
+text_edit = QTextEdit()
+
+# Устанавливаем HTML-контент в текстовое поле
+html_content = """
+<h1>Title</h1>
+<p>This is a paragraph with <b>bold</b> and <i>italic</i> text.</p>
+"""
+text_edit.setHtml(html_content)
+
+layout.addWidget(text_edit)
+window.setLayout(layout)
+
+window.show()
+sys.exit(app.exec())
+----
+
+также посмотрим, как забирать текст из поля -
+--
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QTextEdit, QPushButton, QVBoxLayout
+
+def get_text():
+    # Получаем обычный текст
+    print("Plain Text:")
+    print(text_edit.toPlainText())
+
+    # Получаем HTML текст
+    print("HTML Text:")
+    print(text_edit.toHtml())
+
+app = QApplication(sys.argv)
+
+window = QWidget()
+window.setWindowTitle("QTextEdit Get Text Example")
+
+layout = QVBoxLayout()
+
+text_edit = QTextEdit()
+button = QPushButton("Get Text")
+button.clicked.connect(get_text)
+
+layout.addWidget(text_edit)
+layout.addWidget(button)
+
+window.setLayout(layout)
+window.show()
+
+sys.exit(app.exec())
+----
+
+--- QSlider — это виджет, который позволяет пользователю выбирать значения, перемещая ползунок вдоль заданной оси (горизонтальной или вертикальной). Он обычно используется для выбора числового значения в пределах определенного диапазона -
+--
+- тут в коде - 
+--
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QSlider, QLabel, QVBoxLayout
+from PyQt5.QtCore import Qt
+----
+-
+sys: Используется для запуска и завершения приложения.
+
+QApplication: Основной класс для любого PyQt5-приложения, который управляет событием GUI.
+
+QWidget: Базовый виджет, который используется в качестве контейнера для интерфейса.
+
+QSlider: Виджет ползунка для выбора значения.
+
+QLabel: Метка, отображающая текст или значение.
+
+QVBoxLayout: Вертикальный компоновщик, который упорядочивает виджеты сверху вниз.
+
+Qt: Модуль для работы с параметрами GUI (например, ориентация ползунка).
+
+--
+def on_slider_value_changed(value):
+    label.setText(f"Slider Value: {value}")
+----
+- Эта функция вызывается каждый раз, когда пользователь изменяет значение ползунка.
+Она принимает новое значение ползунка и обновляет текст метки label, чтобы показать текущее значение.
+
+--
+slider = QSlider(Qt.Horizontal)  # Горизонтальный ползунок
+slider.setMinimum(0)  # Минимальное значение
+slider.setMaximum(100)  # Максимальное значение
+slider.setValue(50)  # Начальное значение
+----
+- 
+QSlider(Qt.Horizontal) создает ползунок, ориентированный горизонтально.
+
+setMinimum(0) устанавливает минимальное значение ползунка.
+
+setMaximum(100) устанавливает максимальное значение ползунка.
+
+setValue(50) устанавливает начальное значение ползунка на 50.
 
 
+--
+label = QLabel(f"Slider Value: {slider.value()}")
+----
+-
+QLabel создается для отображения текста. Текст отображает текущее значение ползунка (изначально 50).
+slider.value() возвращает текущее значение ползунка и вставляется в текст метки.
 
+--
+slider.valueChanged.connect(on_slider_value_changed)
+----
+-
+valueChanged — это сигнал, который генерируется при изменении значения ползунка.
+connect(on_slider_value_changed) связывает этот сигнал с функцией on_slider_value_changed, которая будет выполнена при изменении значения ползунка.
 
+--- QComboBox — это виджет, который предоставляет пользователю возможность выбрать одно значение из выпадающего списка. Можно добавить несколько элементов в список, и пользователь сможет выбрать один из них -
+--
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QComboBox, QLabel, QVBoxLayout
 
+def on_combobox_changed(value):
+    label.setText(f"Selected: {value}")
 
+app = QApplication(sys.argv)
 
+window = QWidget()
+window.setWindowTitle("QComboBox Example")
 
+layout = QVBoxLayout()
 
+# Создаем выпадающий список
+combobox = QComboBox()
+combobox.addItem("Option 1")  # Добавляем элементы в выпадающий список
+combobox.addItem("Option 2")
+combobox.addItem("Option 3")
 
+# Метка для отображения выбранного элемента
+label = QLabel("Selected: Option 1")
 
+# Обрабатываем изменение выбора
+combobox.currentTextChanged.connect(on_combobox_changed)
 
+layout.addWidget(combobox)
+layout.addWidget(label)
 
+window.setLayout(layout)
+window.show()
+sys.exit(app.exec())
+----
+-
+QComboBox — это виджет выпадающего списка, который позволяет пользователю выбирать один из нескольких элементов.
 
+addItem() добавляет элементы в список. В данном случае добавляются "Option 1", "Option 2" и "Option 3".
 
+QLabel — это виджет для отображения текста. Изначально текст метки устанавливается как "Selected: Option 1", потому что первый элемент в списке выбран по умолчанию.
 
+currentTextChanged — это сигнал, который генерируется, когда пользователь выбирает новый элемент в выпадающем списке.
 
+connect(on_combobox_changed) связывает этот сигнал с функцией on_combobox_changed, которая обновляет текст метки.
 
+************************************
 
+13.7 - Реальные проекты, написанные на PyQT5
 
+В данном разделе мы будем рассматривать различные проекты, которые пишутся на PyQT5. Начнем пожалуй, с самого важного и интересного. С калькулятора -
+--
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QGridLayout, QLineEdit, QPushButton
+from PyQt5.QtCore import Qt  # Добавляем этот импорт для использования Qt.AlignRight
 
+class Calculator(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Calculator")
+        self.setGeometry(100, 100, 300, 400)
 
+        # Основной макет
+        main_layout = QVBoxLayout()
+
+        # Поле для ввода и отображения результата
+        self.display = QLineEdit()
+        self.display.setReadOnly(True)
+        self.display.setAlignment(Qt.AlignRight)  # Используем выравнивание текста справа
+        self.display.setFixedHeight(50)
+        main_layout.addWidget(self.display)
+
+        # Сетка для кнопок
+        grid_layout = QGridLayout()
+
+        # Определяем кнопки
+        buttons = {
+            '7': (0, 0), '8': (0, 1), '9': (0, 2), '/': (0, 3),
+            '4': (1, 0), '5': (1, 1), '6': (1, 2), '*': (1, 3),
+            '1': (2, 0), '2': (2, 1), '3': (2, 2), '-': (2, 3),
+            '0': (3, 0), 'C': (3, 1), '=': (3, 2), '+': (3, 3)
+        }
+
+        # Создаем кнопки и добавляем их в сетку
+        for btn_text, pos in buttons.items():
+            button = QPushButton(btn_text)
+            button.setFixedSize(60, 60)
+            grid_layout.addWidget(button, pos[0], pos[1])
+            button.clicked.connect(self.on_button_click)
+
+        main_layout.addLayout(grid_layout)
+        self.setLayout(main_layout)
+
+    def on_button_click(self):
+        button = self.sender()
+        text = button.text()
+
+        # Если нажата кнопка "C", очищаем дисплей
+        if text == 'C':
+            self.display.setText('')
+        # Если нажата кнопка "=", выполняем вычисление
+        elif text == '=':
+            try:
+                result = str(eval(self.display.text()))  # eval выполняет строку как выражение
+                self.display.setText(result)
+            except Exception:
+                self.display.setText('Error')
+        # В любом другом случае добавляем текст на дисплей
+        else:
+            self.display.setText(self.display.text() + text)
+
+# Запуск приложения
+app = QApplication(sys.argv)
+window = Calculator()
+window.show()
+sys.exit(app.exec_())
+----
 
 
 
