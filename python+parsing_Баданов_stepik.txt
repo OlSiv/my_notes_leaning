@@ -4861,6 +4861,394 @@ https://stepik.org/lesson/1373758/step/2
 
 1. Линейный график (Line Chart)
 
+Описание: Линейный график используется для отображения данных, которые меняются со временем. Точки данных соединяются линиями, показывая тенденции или изменения.
+
+Пример: График изменения температуры в течение недели.
+
+2. Гистограмма (Bar Chart)
+
+Описание: Гистограмма (или столбчатая диаграмма) отображает данные в виде столбцов. Каждый столбец представляет отдельную категорию, и его высота указывает на величину данных.
+
+Пример: Гистограмма продаж различных продуктов в магазине.
+
+3. Круговая диаграмма (Pie Chart)
+
+Описание: Круговая диаграмма показывает части целого, где каждый сектор представляет процентное отношение отдельных категорий к общему числу.
+
+Пример: Распределение бюджета по различным категориям расходов.
+
+4. Диаграмма рассеяния (Scatter Plot)
+
+Описание: Диаграмма рассеяния используется для отображения взаимосвязи между двумя переменными. Каждая точка на графике представляет одну пару значений.
+
+Пример: Взаимосвязь между количеством часов учебы и оценками студентов.
+
+5. Гистограмма частот (Histogram)
+
+Описание: Гистограмма отображает распределение данных, разбитых на интервалы (или "корзины"). Используется для анализа распределения данных, частоты появления значений.
+
+Пример: Распределение оценок студентов по группам.
+
+6. Тепловая карта (Heat Map)
+
+Описание: Тепловая карта отображает значения через изменение цвета. Она полезна для отображения интенсивности или плотности данных.
+
+Пример: Тепловая карта посещаемости сайта по дням недели и времени суток.
+
+Далее в разделе будут графики, которые составляются математически-программистически способами. Это значит, что от графиков будет тяжело получить какую-то красоту. За это отвечает целый предмет. Называется инфографика.
+
+Инфографика — это визуальное представление информации, данных или знаний, которое сочетает текст, изображения и графику для более наглядного и понятного объяснения сложных концепций или фактов. Цель инфографики — облегчить восприятие информации и улучшить её запоминание через использование визуальных элементов, таких как диаграммы, графики, значки, иконки и схемы.
+
+У автора к сожалению опыта в инфографике нету, поэтому не всегда графики будут получаться красивыми. А вот Вам парочка примеров из инфографики.
+
+************************************
+
+16.2 - Знакомимся с MatPlotLib
+
+В Python для построения графиков часто используется библиотека Matplotlib, которая предоставляет широкие возможности для создания различных типов графиков. Также популярны библиотеки Seaborn и Plotly для более сложной визуализации данных.
+
+проверить установлена ли библиотека python (тут проверяем установлена ли библиотека matplotlib) -
+--
+pip show matplotlib
+----
+
+Если Matplotlib еще не установлен, его можно установить с помощью pip - 
+--
+pip install matplotlib
+----
+
+Построим первый линейный график -
+--
+import matplotlib.pyplot as plt
+
+# Данные для графика
+x = [1, 2, 3, 4, 5]
+y = [2, 3, 5, 7, 11]
+
+# Создание графика
+plt.plot(x, y)
+
+# Добавление подписей к осям
+plt.xlabel('X ось')
+plt.ylabel('Y ось')
+
+# Заголовок
+plt.title('Простой линейный график')
+
+# Показать график
+plt.show()
+----
+
+Теперь давайте посмотрим на то, как делать гистограмму -
+--
+import matplotlib.pyplot as plt
+
+# Данные для столбчатой диаграммы
+categories = ['A', 'B', 'C', 'D']
+values = [5, 7, 3, 8]
+
+# Построение графика
+plt.bar(categories, values)
+plt.title('Bar Chart')
+plt.xlabel('Categories')
+plt.ylabel('Values')
+plt.show()
+----
+
+И тут вроде все понятно, но давайте немного усложним задачу и поменяем цвет на графике -
+--
+import matplotlib.pyplot as plt
+
+# Данные для столбчатой диаграммы
+categories = ['A', 'B', 'C', 'D']
+values = [5, 7, 3, 8]
+
+# Построение графика с указанием цвета столбцов
+plt.bar(categories, values, color='green')  # Можно указать цвет, например, 'green', 'red', 'blue', и т.д.
+plt.title('Bar Chart')
+plt.xlabel('Categories')
+plt.ylabel('Values')
+plt.show()
+----
+
+А что если мы хотим использовать разные цвета для каждого столбца -
+--
+import matplotlib.pyplot as plt
+
+# Данные для столбчатой диаграммы
+categories = ['A', 'B', 'C', 'D']
+values = [5, 7, 3, 8]
+
+# Построение графика с разными цветами для каждого столбца
+colors = ['red', 'blue', 'green', 'orange']
+plt.bar(categories, values, color=colors)
+plt.title('Bar Chart')
+plt.xlabel('Categories')
+plt.ylabel('Values')
+plt.show()
+----
+
+Выглядит неплохо. И здесь мы закинем кое-какую мысль. Почему бы нам не делать более яркий цвет, при более большом значении -
+--
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Данные для столбчатой диаграммы
+categories = ['A', 'B', 'C', 'D']
+values = [5, 7, 3, 8]
+
+# Нормализуем значения для использования в цветовой карте (значения от 0 до 1)
+norm_values = np.array(values) / max(values)
+
+# Используем colormap для задания цвета в зависимости от значения
+colors = plt.cm.viridis(norm_values)  # Можно использовать другие colormap, например, 'plasma', 'inferno', 'coolwarm'
+
+# Построение графика
+plt.bar(categories, values, color=colors)
+plt.title('Bar Chart with Gradient Colors')
+plt.xlabel('Categories')
+plt.ylabel('Values')
+plt.show()
+----
+
+А что если мы хотим сохранить этот график? Не делать же нам каждый раз скриншот? Для этого используйте код -
+--
+plt.savefig('bar_chart.png')
+----
+
+Если вам нужно сохранить файл в определенном разрешении или с прозрачным фоном, можно добавить дополнительные параметры -
+--
+plt.savefig('bar_chart.png', dpi=300, transparent=True)
+----
+
+Рассмотрим круговую диаграмму -
+--
+import matplotlib.pyplot as plt
+
+# Данные для круговой диаграммы
+labels = ['Category A', 'Category B', 'Category C', 'Category D']
+sizes = [20, 30, 25, 25]
+
+# Построение графика
+plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+plt.title('Pie Chart')
+plt.show()
+----
+
+Выглядит красиво, но не очень. Давайте добавим сюда отступы. В код добавим строку -
+--
+explode = (0, 0.1, 0, 0) # Величина смещения для второго сектора
+Чтобы весь код стал таким.
+----
+
+--
+import matplotlib.pyplot as plt
+
+# Данные для круговой диаграммы
+labels = ['Category A', 'Category B', 'Category C', 'Category D']
+sizes = [20, 30, 25, 25]
+explode = (0, 0.1, 0, 0)  # Величина смещения для второго сектора
+plt.pie(sizes, labels=labels, autopct='%1.1f%%', explode=explode)
+plt.title('Pie Chart with Explode')
+plt.show()
+----
+
+Выглядит гораздо лучше. Можем добавить тень, путем добавления флага shadow=True -
+--
+import matplotlib.pyplot as plt
+
+# Данные для круговой диаграммы
+labels = ['Category A', 'Category B', 'Category C', 'Category D']
+sizes = [20, 30, 25, 25]
+explode = (0, 0.1, 0, 0)  # Величина смещения для второго сектора
+plt.pie(sizes, labels=labels, autopct='%1.1f%%', shadow=True, explode=explode)
+plt.title('Pie Chart with Shadow')
+plt.show()
+----
+
+А можно сделать диаграмму в виде пончика -
+--
+import matplotlib.pyplot as plt
+
+# Данные для круговой диаграммы
+labels = ['Category A', 'Category B', 'Category C', 'Category D']
+sizes = [20, 30, 25, 25]
+explode = (0, 0.1, 0, 0)  # Величина смещения для второго сектора
+plt.pie(sizes, labels=labels, autopct='%1.1f%%', wedgeprops=dict(width=0.3))
+plt.title('Donut Chart')
+plt.show()
+----
+
+Рассмотрим диаграмму рассеяния -
+--
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Данные для диаграммы рассеяния
+x_scatter = np.random.rand(50)
+y_scatter = np.random.rand(50)
+
+# Построение графика
+plt.scatter(x_scatter, y_scatter)
+plt.title('Scatter Plot')
+plt.xlabel('X values')
+plt.ylabel('Y values')
+plt.show()
+----
+
+К сожалению на простом примере не очень понятно, что за что отвечает. Поэтому пример поинтереснее и посложнее -
+--
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Реальные данные: рост (в см), вес (в кг) и возраст (в годах)
+heights = [150, 160, 165, 170, 175, 180, 185, 190, 195, 200]
+weights = [50, 55, 65, 70, 72, 75, 78, 85, 90, 95]
+ages = [22, 25, 30, 35, 40, 45, 50, 55, 60, 65]  # Возраст будет влиять на цвет
+
+# Генерация размера точек для визуализации на основе веса
+sizes = np.array(weights) * 10  # Пропорциональные размеры точек
+
+# Построение диаграммы рассеяния
+plt.scatter(heights, weights, s=sizes, c=ages, cmap='coolwarm', alpha=0.8)
+
+# Добавление цветовой шкалы, отображающей возраст
+plt.colorbar(label='Age (years)')
+
+# Подписи
+plt.title('Height vs Weight Scatter Plot with Age Indicator')
+plt.xlabel('Height (cm)')
+plt.ylabel('Weight (kg)')
+
+# Показ графика
+plt.show()
+----
+- В примере используются данные по росту, весу и возрасту людей.
+heights: список значений роста в сантиметрах.
+weights: список значений веса в килограммах.
+ages: возраст людей, который будет отображаться через цвет.
+
+Масштабируем размеры точек пропорционально весу, что позволяет визуально акцентировать внимание на более крупных значениях.
+
+Цвет точек зависит от возраста — c=ages, а cmap='coolwarm' задает цветовую схему. Цветовая шкала отображает диапазон возрастов.
+
+Параметр alpha установлен на 0.8 для лучшей видимости точек при их наложении друг на друга
+
+Научимся работать с гистограммой частот -
+--
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Данные для гистограммы
+data = np.random.randn(1000)
+
+# Построение графика
+plt.hist(data, bins=30, alpha=0.7)
+plt.title('Histogram')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.show()
+----
+
+Берем реальный пример -
+--
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Генерация данных: зарплаты сотрудников в тыс. долларов
+salaries = np.random.normal(50, 15, 1000)  # Средняя зарплата = 50 тыс., стандартное отклонение = 15 тыс., 1000 сотрудников
+
+# Построение гистограммы
+plt.figure(figsize=(8,6))
+plt.hist(salaries, bins=30, edgecolor='black', color='skyblue', alpha=0.7)
+
+# Добавление подписей
+plt.title('Distribution of Salaries in a Company', fontsize=14)
+plt.xlabel('Salary (in thousands of dollars)', fontsize=12)
+plt.ylabel('Number of Employees', fontsize=12)
+
+# Добавление средней линии для акцента
+mean_salary = np.mean(salaries)
+plt.axvline(mean_salary, color='red', linestyle='dashed', linewidth=1.5, label=f'Mean Salary: ${mean_salary:.2f}K')
+
+# Легенда
+plt.legend()
+
+# Показ графика
+plt.show()
+----
+
+Данные о зарплатах: Мы сгенерировали данные о зарплатах сотрудников с использованием нормального распределения. Средняя зарплата - 50K, стандартное отклонение - 15K.
+
+Гистограмма: Гистограмма визуализирует распределение зарплат среди сотрудников. Мы использовали 30 "корзин" (bins) для отображения частот.
+
+Цвет и прозрачность: Цвет столбцов skyblue с прозрачностью alpha=0.7, что делает график визуально приятным.
+
+Средняя линия: Добавлена красная пунктирная линия, которая показывает среднюю зарплату на графике.
+
+Легенда: Легенда показывает значение средней зарплаты, что добавляет ясности.
+
+Тепловая карта (heatmap) — это тип визуализации данных, который отображает значения в виде цветов на двумерной сетке. Тепловые карты используются для того, чтобы выявить закономерности и показать зависимости между переменными, которые иначе было бы трудно заметить в табличных данных. Цветовые градации помогают легче воспринимать данные и выделяют горячие точки (максимумы) и холодные точки (минимумы) -
+--
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Генерация случайных данных 10x12
+data = np.random.rand(10, 12)
+
+# Построение тепловой карты
+plt.figure(figsize=(8,6))
+plt.imshow(data, cmap='coolwarm', aspect='auto')
+
+# Добавление цветовой шкалы
+plt.colorbar(label='Value')
+
+# Подписи к графику
+plt.title('Heatmap using Matplotlib')
+plt.xlabel('X axis')
+plt.ylabel('Y axis')
+
+# Показ графика
+plt.show()
+----
+
+************************************
+
+17.1 - Что такое матрица? Операции над матрицами
+
+Этот раздел для общего развития(как раз таки из разряда нужна ли программисту математика), и мы рассмотрим библиотеку numpy на примере матриц.
+
+Матрица в математике — это двумерный массив чисел (или других объектов), организованный в виде прямоугольной таблицы, состоящей из строк и столбцов. Матрицы широко используются в различных областях математики, физики, информатики и других дисциплин для решения систем линейных уравнений, обработки данных, выполнения линейных преобразований, моделирования, компьютерной графики и других задач.
+
+Матрица обычно обозначается заглавной буквой, например, A, и записывается в виде прямоугольной таблицы. Если матрица имеет m строк и n столбцов, её называют матрицей размера m×n (читается как "m на n").
+
+Как пример - матрицы A размером 3×2 (3 строки и 2 столбца)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4885,23 +5273,50 @@ https://stepik.org/lesson/1373758/step/2
 
 ******************
 
-DA itProgger - 
+DA - itProgger - 
 https://www.youtube.com/playlist?list=PLDyJYA6aTY1kcb2fIGFZ9064fi-u1sLyf
 
 https://itproger.com/course/data-analytics
 
-1 - 
+1 =
+https://www.youtube.com/watch?v=MVtrwcrdRgY&list=PLDyJYA6aTY1kcb2fIGFZ9064fi-u1sLyf&index=1&pp=iAQB
+2 =
+https://www.youtube.com/watch?v=VBKzAfG5D0M&list=PLDyJYA6aTY1kcb2fIGFZ9064fi-u1sLyf&index=2&pp=iAQB
+3 =
+https://www.youtube.com/watch?v=iX28sWsAT4Y&list=PLDyJYA6aTY1kcb2fIGFZ9064fi-u1sLyf&index=3&pp=iAQB
+4 =
+https://www.youtube.com/watch?v=CmepphU_9NA&list=PLDyJYA6aTY1kcb2fIGFZ9064fi-u1sLyf&index=4&pp=iAQB
+5 =
+https://www.youtube.com/watch?v=Hoar3-lKhHI&list=PLDyJYA6aTY1kcb2fIGFZ9064fi-u1sLyf&index=5&pp=iAQB
+6 =
+https://www.youtube.com/watch?v=NUj4SUNpTaM&list=PLDyJYA6aTY1kcb2fIGFZ9064fi-u1sLyf&index=6&pp=iAQB
+7 =
+https://www.youtube.com/watch?v=dkHXL6SS-wA&list=PLDyJYA6aTY1kcb2fIGFZ9064fi-u1sLyf&index=7&pp=iAQB
+8 =
+https://www.youtube.com/watch?v=4BpI7QtJK60&list=PLDyJYA6aTY1kcb2fIGFZ9064fi-u1sLyf&index=8&pp=iAQB
+9 =
+https://www.youtube.com/watch?v=MkSMBSb3Ba4&list=PLDyJYA6aTY1kcb2fIGFZ9064fi-u1sLyf&index=9&pp=iAQB
 
-NumPy 
-Pandas
-Matplotlib 
-Seaborn 
-Plotly
+>>>>>>>>>
 
-- аналитика данных - это изучение прошлого и настоящего 
-- дата саенс - создание моделей машинного обучения для предсказания будущего 
+1_DA_itProgger
 
-2 -
+библиотеки для Python - 
+NumPy - обработка массивов чисел, матриц 
+Pandas - работа с табличными данными 
+Matplotlib - визуализация - графики, диаграммы и т.п. 
+Seaborn - визуализация
+Plotly - интерактивные графики и дашборды
+Dash - интерактивные графики и дашборды
+
+- аналитика данных - DA - это изучение прошлого и настоящего 
+- дата саенс - DS - создание моделей машинного обучения для предсказания будущего 
+
+>>>>>>>>>
+
+2_DA_itProgger
+
+многомерные массивы - матрицы 
 
 создать новый проект в PyCharm 
 
@@ -4931,9 +5346,90 @@ print(matrix * 2)
 ------
 - каждый элемент массива будет умножен на 2 
 
+для работы с элементами массива можно использовать индексы и срезы 
+
+массивы можно объеденить по горизонтали либо по вертикали 
+
+матрицу тоже можно разделить по горизонтали и по вертикали 
+
+--
+import numpy as np 
+
+arr = np.array([1, 2, 3, 4, 5])
+
+print(np.mean(arr))
+
+print(np.std(arr))
+
+print(np.median(arr))
+
+print(np.min(arr), np.max(arr))
+----
+3.0
+1.4142135623730951
+3.0
+1 5
+------
+
 анализ з/п сотрудников компании - 
 --
 import numpy as np 
+
+salaries = np.array([50, 23, 60, 26, 19, 64, 45, 60, 57])
+
+mean_salary = np.mean(salaries)
+print(f"Average salary: {mean_salary}K$")
+
+max_salary = np.max(salaries)
+min_salary = np.min(salaries)
+print(f"Max salary: {max_salary}K$")
+print(f"Min salary: {min_salary}K$")
+
+std_salary = np.std(salaries)
+print(f"Std: {std_salary}")
+
+above_mean = salaries[salaries > mean_salary]
+print(f"Above mean: {above_mean}")
+----
+Average salary: 44.888888888888886K$
+Max salary: 64K$
+Min salary: 19K$
+Std: 16.669629366301955
+Above mean: [50 60 64 45 60 57]
+------
+
+далее показывает пример как считать количество и цены проданных продуктов по датам 
+
+>>>>>>>>>
+
+3_DA_itProgger
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
