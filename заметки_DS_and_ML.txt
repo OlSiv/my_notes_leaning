@@ -188,8 +188,39 @@ print(hex_dig)
 
 2 - 2.2 - Знакомство с консолью. Условные конструкции 
 
-===
+эта функция будет отличать повествовательные предложения от
+вопросительных:
+--
+def get_type_of_sentence(sentence):
+    last_char = sentence[-1]
+    if last_char == '?':
+        return 'question'
+    return 'normal'
 
+print(get_type_of_sentence('Hodor')) # => normal
+print(get_type_of_sentence('Hodor?')) # => question
+----
+
+Теперь изменим функцию из предыдущего примера так, чтобы она
+возвращала не просто тип предложения, а целую строку Sentence is
+normal или Sentence is question :
+--
+def get_type_of_sentence(sentence):
+    last_char = sentence[-1]
+
+    if last_char == '?':
+        sentence_type = 'question'
+    else:
+        sentence_type = 'normal'
+
+    return "Sentence is " + sentence_type
+
+print(get_type_of_sentence('Hodor')) # => 'Sentence is normal'
+print(get_type_of_sentence('Hodor?')) # => 'Sentence is question'
+----
+
+далее на примерах объясняет концепцию - 
+if - elif - elif - ... -else 
 
 
 
