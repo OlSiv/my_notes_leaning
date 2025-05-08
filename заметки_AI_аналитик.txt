@@ -1,0 +1,73 @@
+
+https://s1.sharewood.co/threads/product-university-ai-analitik-analiz-i-vizualizacija-dannyx-s-pomoschju-ai-instrumentov-2023.448735
+-
+https://cloud.mail.ru/public/FZSq/1sguKHVCM
+
+на sd256 ->
+
+**************************************************
+
+0 - 1 -
+
+2 кейса - 
+- анализ продаж интернет-магазина 
+- анализ стартапов, получивших инвестиции за неделю 
+
+chat.openai.com + VPN 
+
+GPT-4
+Code Interpreter - включить плагин 
+
+Custom instructions - прописать -
+Cite sources whenever possible, and include URLs if possible. Put URLs at the bottom of your response, not inline. No need to provide disclaimers about your knowledge cutoff. No need to mention you are AI language model. You should act as an expert in the relevant fields.
+
+включить движок - Enable for new chats 
+
+2-30
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
