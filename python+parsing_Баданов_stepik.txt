@@ -5333,6 +5333,8 @@ print(square_matrix)
 
 Web3 + Python
 
+курс записан в январе 2024 года 
+
 видео 1 -
 
 установить python 3.10 или 3.11 - 
@@ -5409,9 +5411,10 @@ True
 ветвления - 
 if - elif - elif - ... - else 
 
+дебагер и визуализатор кода - 
+pythontutor.com/visualize.html#mode=edit 
 
-
-45-00
+55-55
 
 
 
