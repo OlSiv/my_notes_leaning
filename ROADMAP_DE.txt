@@ -2136,6 +2136,15 @@ FROM orders
 WHERE array_length(product_ids, 1) >= 9;
 ----
 
+В качестве аргумента агрегирующих функций могут выступать не только столбцы, но также расчётные колонки или результат другой функции -
+--
+SELECT AVG(some_function(column))
+FROM table
+
+
+SELECT AVG(column_1 + column_2)
+FROM table
+----
 
 
 
