@@ -1,4 +1,6 @@
 
+jupyter notebook
+
 Анализ Данных на Python с Глебом Михайловым Мастер-Класс [udemy] [Gleb Mikhaylov]
 
 https://bw10.skladchik.org/threads/analiz-dannyx-na-python-s-glebom-mixajlovym-master-klass-udemy-gleb-mikhaylov.319851/
@@ -158,11 +160,26 @@ id = url.split('/')[5]
 id
 # - проверить что в переменной id 
 
-01-10
+df = pd.read_csv(f'https://docs.google.com/spreadsheets/d/{id}/export?format=csv')
+
+df.head()
+----
+
+*********************************************************
+
+2 - 4 -  Загрузка данных - Подключение Google Drive - 
+
+примаунтить - это значит подключить 
+
+в Google Colab - вверху слева под Files - значек с черной папкой и трехугольником - потом нажать кнопку Connect to ......
+
+--
+! ls '/content/drive/'
+----
+- тут /content/drive/ - это путь к папке, который можно получить кликнув на папку и нажав Copy 
 
 
-
-
+2-35
 
 
 
