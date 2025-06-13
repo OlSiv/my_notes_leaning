@@ -142,7 +142,7 @@ https://github.com/glebmikha/data-analysis-master-class/blob/main/german_credit_
 
 *********************************************************
 
-2 - 3 -  Загрузка данных - С Google Sheets - 
+2 - 3 - Загрузка данных - С Google Sheets - 
 
 тоже понадобится ссылка из Share 
 
@@ -167,7 +167,7 @@ df.head()
 
 *********************************************************
 
-2 - 4 -  Загрузка данных - Подключение Google Drive - 
+2 - 4 - Загрузка данных - Подключение Google Drive - 
 
 примаунтить - это значит подключить 
 
@@ -178,8 +178,82 @@ df.head()
 ----
 - тут /content/drive/ - это путь к папке, который можно получить кликнув на папку и нажав Copy 
 
+--
+df = pd.read_csv('/content/drive/file-credits.csv')
 
-2-35
+df.head()
+----
+
+файлы excel подгружаются аналогично - 
+--
+df = pd.read_excel('/content/drive/file-credits.xls')
+----
+
+*********************************************************
+
+2 - 5 - Загрузка данных - С базы данных (Из базы данных) - 
+
+--
+import pandas as pd 
+
+from sqlalchemy import create_engine 
+con = create_engine('postgresql+psycopg2://vozdmin1:RSGY639756fhjsifn@dumbo.db.elephantsql.com:5432/vozdmin')
+----
+- где - 
+- vozdmin1 - имя пользователя 
+- RSGY639756fhjsifn - пароль 
+- dumbo.db.elephantsql.com - адрес (тут может быть ip-адрес)
+- 5432 - порт
+- vozdmin - название базы данных 
+
+залить файл (таблицу) в базу данных под именем ger_credit - 
+--
+df = pd.read_csv('/content/german-credit.csv')
+
+df.to_sql('ger_credit', con, if_exists='replace', index=False  )
+----
+- тут -
+- con - это переменная, созданная выше 
+- if_exists='replace' - если уже существует, то перезаписать 
+- index=False - не создавать автоматически столбец с индексами 
+
+считать таблицу из базы данных - 
+--
+sql = '''select * from ger_credit t'''
+
+df = pd.read_sql(sql, con)
+
+df.head()
+----
+
+*********************************************************
+
+3 - 1 - Предобработка - Про датасет German Credit Data - 
+
+цель - найти связь между последней колонкой (1 - не вернул кредит, 0 - вернул кредит) и значениями в других колонках 
+
+*********************************************************
+
+3 - 1.1 - Предобработка - Kaggle - 
+
+https://www.kaggle.com/datasets/uciml/german-credit
+
+*********************************************************
+
+3 - 2 - Предобработка - Kак удалять столбцы и как гуглить - 
+
+=
+
+
+
+
+
+
+
+
+
+
+
 
 
 
