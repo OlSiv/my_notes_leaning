@@ -242,7 +242,11 @@ https://www.kaggle.com/datasets/uciml/german-credit
 
 3 - 2 - Предобработка - Kак удалять столбцы и как гуглить - 
 
-=
+--
+import pandas as pd 
+import numpy as np 
+
+
 
 
 
