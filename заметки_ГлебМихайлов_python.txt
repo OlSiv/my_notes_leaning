@@ -195,8 +195,8 @@ df = pd.read_excel('/content/drive/file-credits.xls')
 
 --
 import pandas as pd 
-
 from sqlalchemy import create_engine 
+
 con = create_engine('postgresql+psycopg2://vozdmin1:RSGY639756fhjsifn@dumbo.db.elephantsql.com:5432/vozdmin')
 ----
 - где - 
