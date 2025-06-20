@@ -7115,7 +7115,8 @@ vk, яндекс-метрику, google-документы
 в vk - создать сообщество и создать в нем ключ (токен)
 
 токен (никому нельзя показывать!) - 
-vk1.a.pcHrnfO9MdQp4ODvF3XXVzJBXybmBGhI5klM1HWjlTnSIoK9Audd5I3nS-PUZ3rRJUWD8IvB208YH7U7labxQVLQ_7dOY0g46B1vEp0xAFonM6ke67ilEKsblbeUb6j8_UPLPJ3FacaSUjCqh5-Ex2JrudFJsPt4jAY7rGXqMzJCpX8yEK7dhzaQ2DVB73cZyQHWsq9XbiTe9bEd6ucUsA
+vk1.a.pc.......
+- в Т - 21.06.2025
 
 7.2 Библиотека VK_API
 -
@@ -7299,7 +7300,8 @@ True или False
 
 **any**
 
-Есть ли в серии хотя бы одно значение True?Аналогично использованию `or` между всеми значениями:
+Есть ли в серии хотя бы одно значение True?
+Аналогично использованию `or` между всеми значениями:
 
 imia_serii.any()
 -
@@ -7324,7 +7326,11 @@ random.randint(a, b)
 
 **Токен**
 
-Токен — это уникальная последовательность символов, позволяющая авторизоваться на сайте и работать с API.Пример токена: d9b70b356593da15f73083d7a0e0554586ca5f743fc0f30dabb993f9917b4317725d4db40a3d5e3111eee
+Токен — это уникальная последовательность символов, позволяющая авторизоваться на сайте и работать с API.
+
+Пример токена: 
+d9b70b35.....
+- в Т - 21.06.2025
 
 
 
@@ -7369,10 +7375,13 @@ import vk_api
 
 # Token which you obtained via vk
 app_token = 'your private token'
+
 # id of the 1st chat
 chat_id = 1
+
 # id of my user-receiver
 my_id = 148915653
+
 # Initialize session
 vk_session = vk_api.VkApi(token=app_token)
 
@@ -7461,7 +7470,9 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 
 # Specify path to your file with credentials
-path_to_credential = 'credentials.json'# Specify name of table in google sheets
+path_to_credential = 'credentials.json'
+
+# Specify name of table in google sheets
 table_name = 'name of your table'
 
 scope = ['https://spreadsheets.google.com/feeds',
@@ -8022,7 +8033,8 @@ for i in lst:
 
 А теперь попробуем воспользоваться знаниями использования Telegram API. Отправьте себе в личку любое послание, а в ответ к этому шагу напишите ник бота, от имени которого будете отправлять сообщения
 
-https://api.telegram.org/bot6145061804:AAHvqoIYkjyx70XKPjEHD-nZM9z5-SI1IuM/getUpdates
+https://api.telegram.org/bot6145061804:AAHvqo..........-SI1IuM/getUpdates
+- в Т - 21.06.2025
 
 номер id - первый номер в третьей сверху строке 
 
@@ -8032,14 +8044,14 @@ import json
 from urllib.parse import urlencode
 
 
-token = '6145061804:AAHvqoIYkjyx70XKPjEHD-nZM9z5-SI1IuM'
+token = '6145061804:AAHvqo..........-SI1IuM'
 chat_id = 470447487  # your chat id
 
 message = 'test777'  # text which you want to send
 
 params = {'chat_id': chat_id, 'text': message}
 
-base_url = f'https://api.telegram.org/bot6145061804:AAHvqoIYkjyx70XKPjEHD-nZM9z5-SI1IuM/'
+base_url = f'https://api.telegram.org/bot6145061804:AAHvqo..........-SI1IuM/'
 url = base_url + 'sendMessage?' + urlencode(params)
 # Only if you need it
 # proxy = {'https': 'https://77.48.23.199:57842'}
@@ -8329,8 +8341,8 @@ Git
 Теперь нам понадобится гитлаб - 
 https://git.lab.karpov.courses/
 soj@.....
-4c4bwFnsGu
-
+.c4bwFnsGu
+- папка как в Linux на ноуте Apple - в папке 5-1
 
 
 1.1 Пример работы в аналитической команде 
@@ -8438,7 +8450,8 @@ cat id_rsa.pub
 
 потом зайти в нужный репозиторий (например - analytics) и в Clone - где .....SSH - скопировать ссылку 
 
-573f5c13c4236b7afd6fb5275abfc92dc2a08eb0
+573f5c13c4236b7afd6fb52...................
+- в Т - 21.06.2025
 
 перейдем с помощью cd в деррикторию, куда нужно копировать проект с gitlab и пропишем -
 git clone git@git.lab.karpov.courses:lab/analytics.git
@@ -8640,7 +8653,8 @@ cat -
 Сокращение от concatenate – выдаёт содержимое файла (файлов)
 
 jupyter-a.ilin@lab:~$ cat .ssh/id_rsa.pub
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDq8g0AQEhSHjKDrgjRE+gKZxPJp2p47QWuBRWUwvDzZahg1gGgQdcV4UW4KZ15Q/O5OW5uvyNw2ylOvpJw8Cfz1D3uryXM9hxPVDygTi/rYsxQhmSgPtQaog7QHINTR4ToWsWnchF7ZtizhdUXNNHSQF/D5QO9kflF1JAMVe4SIC102xrCwFzi+2opZMM731IFT/DpM92JIjh+jsEjMiQG9zaD6RQTqhW/S1kapJj3o2QAVFf2YV5xSOhGe7NgIsqN5mSTaTHampskSkX+ejPtznVLw8whDGSKhEv9P+y76ncjZnTEOsVVkNR2c9ic9B0OE/27Pt7i7ZCSo8SY/7PyP1LmnFArvwCq4K78RQEILD6uL0pD99+dNbwx7Cz9EfeKcmF25bL1vWe14OW0Kcf095xH2k8crgZr2LW9Ag0Cl5vFQ0qtzgCkZcntwXe23UBiIhdRUPxIipS90IAnkSYN65vWKv6+OmGNJ38blf0o0XvapXWtk2g+7hYjas7oz3XzaJKGIglZF2RtcZ0IEXgErvKN/CqrLexIkepWoOhnyzepBAKt0enwxx+bm3aSQQbiok0qsELSReVDi9f6xVCT0p6yaRxNq4HVor77YuQUHUYocoSMgWQWD0OETqIC2eK1RiHJ56MXtcWes1EHe+0x5JOm6fqJAQDcqA5mEMZwlw== jupyter-a.ilin@lab.karpov.courses
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAA....................
+- в Т - 21.06.2025 
 
 
 
