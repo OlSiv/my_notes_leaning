@@ -2445,10 +2445,50 @@ FROM user_actions;
 Также помните, что использовать в расчётах алиасы новых колонок нельзя.
 --
 
+Запрос к ChatGPT - 
+Имеется таблица orders где следующие столбцы: order_id - id ордеров, creation_time - дата и время создания заказа, product_ids - id продуктов в виде массива, типа так - [44, 50, 78].    
+Нужно посчитать общее количество заказов в таблице orders, количество заказов с пятью и более товарами и найдите долю заказов с пятью и более товарами в общем количестве заказов.
+В результирующей таблице отразите все три значения — поля назовите соответственно orders, large_orders, large_orders_share.
+Долю заказов с пятью и более товарами в общем количестве товаров округлите до двух знаков после запятой. Поля в результирующей таблице: orders, large_orders, large_orders_share
+--
+SELECT count(*) as orders,
+       count(case when array_length(product_ids, 1) >= 5 then 1 end) as large_orders,
+       round(count(case when array_length(product_ids, 1) >= 5 then 1 end) * 1.0 / count(*),
+             2) as large_orders_share
+FROM   orders;
+----
++
+--
+SELECT count(order_id) as orders,
+       count(order_id) filter (WHERE array_length(product_ids, 1) >= 5) as large_orders,
+       round(count(order_id) filter (WHERE array_length(product_ids, 1) >= 5)::decimal / count(order_id),
+             2) as large_orders_share
+FROM   orders
+----
 
+В этом уроке мы:
 
+- Познакомились с ключевым словом DISTINCT.
 
-select * from orders limit 10;
+- Разобрались, как работают агрегирующие функции SUM, MIN, MAX, COUNT.
+
+- Узнали разницу между COUNT(*) и COUNT(column).
+
+- Научились совмещать фильтрацию и агрегацию в одном запросе.
+Поработали с массивами и узнали, что делает функция array_length.
+
+- Узнали ещё больше про даты и время и познакомились с функцией AGE.
+
+- Затронули более продвинутую тему — агрегатные выражения с фильтрацией.
+
+Известные нам на текущий момент ключевые слова и порядок их написания в запросе:
+--
+SELECT     -- перечисление полей результирующей таблицы
+FROM       -- указание источника данных
+WHERE      -- фильтрация данных
+ORDER BY   -- сортировка результирующей таблицы
+LIMIT      -- ограничение количества выводимых записей
+----
 
 
 
