@@ -49,7 +49,7 @@ pandas - эта библиотека больше всего подходит д
 
 чтобы установить в notebook сторонюю библиотеку - 
 --
-! pip install imia_biblioteki
+! pip install name_biblioteki
 ----
 
 импорт библиотек - 
