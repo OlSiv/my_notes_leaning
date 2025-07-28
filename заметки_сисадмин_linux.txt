@@ -50,14 +50,104 @@ Debian >>> Ubuntu
 
 
 
++++
+
+курс в youtube по администрированию linux - 
+
+канал автора - 
+https://www.youtube.com/@KirillSemaev
+
+************************************
+
+плейлисты по порядку - 
+
+1 ---
+LPIC-1 (exam 101)
+31 видео 
+-
+https://www.youtube.com/watch?v=rKCu-tfL730&list=PLmxB7JSpraiep6kr802UDqiAIU-76nGfc
+
+2 ---
+LPIC-1 (exam 102)
+65 видео 
+-
+https://www.youtube.com/watch?v=aRcRAA1Gj_4&list=PLmxB7JSpraieH3aScuPs7h77cSEQvPi2A
+
+3 ---
+Мануалы (Практическое системное администрирование)
+40 видео 
+-
+https://www.youtube.com/watch?v=BWxdmC1tCas&list=PLmxB7JSpraifsRUrtq2Y-il5NCLc3vKho
+
+4 ---
+Оффтоп 
+8 видео 
+- 
+https://www.youtube.com/watch?v=3M8zH_6oN-8&list=PLmxB7JSpraif2Gqqgk4YdmaR5O9-NiUME
+
+5 ---
+Матчасть 
+15 видео
+-
+https://www.youtube.com/watch?v=YX2v3d4-F_U&list=PLmxB7JSpraieJLcnTyrytdUwm1ahOgSs3&pp=0gcJCV8EOCosWNin
+
+6 ---
+DevOps 
+18 видео
+-
+https://www.youtube.com/watch?v=LSgmwgSbGjQ&list=PLmxB7JSpraieS8C58ewR7fdTu5fS3z7HG
+
+7 ---
+LPIC-2 (exam 201)
+16 видео 
+-
+https://www.youtube.com/watch?v=wq2YcCoOKkE&list=PLmxB7JSpraidTqByo0ihkyExIbKfAB-B9
+
+8 ---
+Deprecated
+1 видео 
+-
+https://www.youtube.com/watch?v=7nLd_qyCL9U&list=PLmxB7JSpraidmCtn2yt-2NswzaNcFFUuk
+
+9 ---
+LPIC essentials
+4 видео 
+-
+https://www.youtube.com/watch?v=IZTl2nYPRz8&list=PLmxB7JSpraidEUbmKkRn7ZlqJg6_8kE7j
+
+10 ---
+Jenkins
+8 видео 
+-
+https://www.youtube.com/watch?v=7SM8GLArTDY&list=PLmxB7JSpraiew9igtD89o33AaniUrmUzm
+
+************************************
+
+1 --- 
+1 -
+https://youtu.be/rKCu-tfL730?si=xVNiVpUNO6SqHc9x
+-
+Вводное видео для LPIC-1 (exam 101), или подготовка к курсу по администрированию Linux
 
 
 
+3 ступени по linux на каждой по 2 экзамена (итого 6 экзаменов)
+
+идти по порядку по урокам 
+
+повторять всё что делает автор в ubuntu 
+
+************************************
+
+1 --- 
+2 -
+https://youtu.be/25ws_pBRChw?si=oq7nAIVJxGQc3cs5
+-
+LPIC 101.1 Работа с железом в Linux. Часть первая - sysfs, devfs, udev
 
 
 
-
-
+=
 
 
 
