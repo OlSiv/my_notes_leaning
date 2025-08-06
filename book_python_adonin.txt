@@ -3,47 +3,314 @@
 - избранное - 29.07.2025
 - my_coding - 29.07.2025
 
+
+
 ******************************************
+
 
 автоформатирование кода PEP8 - 
 CTRL + ALT + L 
+
 
 запуск кодла в файле main.py через терминал -
 --
 python main.py 
 ----
 
+
 --
 print(2 + 3)
 ----
 
-36
+
+в python всё является объектами 
 
 
+атрибуты объекта - это свойства (переменные)
+методы объекта - это действия (функции)
 
 
+int 
+float
+str
+bool
+list 
+dict 
+tuple
+set 
 
 
+--
+a = 25
+print(type(a))
+----
+<class 'int'>
+------
 
 
++
+-
+*
+/
+**
+//
+%
 
 
+приоритет операций - 
+()
+**
+*, /, //, % 
++, -
 
 
+возвратить абсолютное значение числа (если -, то без минуса) - 
+--
+abs()
+----
+
+округление - 
+--
+round(234.56)
+round(234.56789, 2)
+----
 
 
+если указать отрицательное значение, вернет так -
+--
+round(2222.333333, -2)
+round(2222.333333, -3)
+----
+2200.0
+2000.0
+------
 
 
+--
+int(23.456)
+
+float('123.456')
+
+max(1, 2, 3)
+
+min(1, 2, 3)
+
+sum([1, 2, 3, 4, 5])
+
+# возведение числа в степень - 
+pow(10, 2)
+----
 
 
+функции можно помещать в тело других функций - 
+--
+max(1, 2, 4, 7, abs(-88))
+----
 
 
+модуль math 
 
 
+# пример однострочного комментария 
 
 
+'''
+пример 
+многострочного 
+комментария
+'''
 
 
+ЗАДАНИЯ - 
+--
+print(abs(-5.27))
+
+print(round(3.14159, 2))
+
+print(int("684"))
+
+print(max(3, 7, 2, 9, 5))
+print(min(3, 7, 2, 9, 5))
+
+print(sum([5, 4, 32, 18, 841]))
+
+print(pow(2, 5))
+print(2 ** 5)
+----
+
+
+переменные - 
+--
+name = "Alex"
+age = 30 
+price = 9.99 
+----
+
+
+Список ключевых слов: 
+True, 
+False, 
+None, 
+and, 
+as, 
+assert, 
+break, 
+class, 
+continue, 
+def, 
+del, 
+if, 
+elif, 
+else, 
+except, 
+finally, 
+for, 
+while, 
+from, 
+global, 
+in, 
+import, 
+is, 
+lambda, 
+nonlocal, 
+not, 
+оr, 
+pass, 
+raise, 
+rеturn, 
+trу, 
+with, 
+yield
+
+
+x, y, z = 5, "Alex", True 
+
+
+ЗАДАНИЯ - 
+--
+name = "Alex"
+
+a = 5
+b = 10
+c = 100 
+print(sum(a, b, c))
+print(max(a + b + c))
+print(min(a + b + c))
+
+a = b
+b = 5 
+print(a)
+print(b)
+----
+
+
+ввод данных (функция input()) -
+--
+name = input("Enter your name:   ")
+print("Hello, " + name + "!")
+----
+Hello, Alex!
+------
+- принимает данные в str, если нужно ввести число, нужно конвертировать (int, float) -
+--
+age = int(input("Enter your age:   "))
+print(type(age))
+----
+
+
+функция print() -
+--
+print(2, 5, 7, sep=', ')
+----
+
+sep=','
+end = '///'
+
+
+--
+day = 1
+date = 2
+month = 3
+
+print("Сегодня %s %s %s" %(day, date, month))
+
+print(f"Сегодня {day} - {date} - {month}")
+
+print("Сегодня {} - {} - {}".format(day, date, month))
+----
+Сегодня 1 2 3
+Сегодня 1 - 2 - 3
+Сегодня 1 - 2 - 3
+------
+
+
+ЗАДАНИЯ - 
+1
+--
+name = input("Enter your name:   ")
+age = int(input("Enter your age:   "))
+city = input("Enter your city:   ")
+
+print(f"Hello {name} {age} from {city}")
+----
+2
+--
+vis = int(input("Enter visota:   "))
+shir = int(input("Enter shirina:   "))
+print((vis + shir) * 2)
+----
+3
+--
+count_apple = int(input("Enter count apples: "))
+count_box = int(input("Enter count box: "))
+res_in_box = count_apple // count_box
+ost = count_apple % count_box
+print(res_in_box)
+print(ost)
+----
+4
+--
+zn = int(input("Enter numbers:   "))
+print(zn % 10)
+----
+5
+--
+zn = int(input("Enter numbers:   "))
+a = zn // 10
+b = a % 10
+print(b)
+----
+6 
+--
+zn = int(input("Enter numbers:   "))
+a = zn // 100
+b = (zn // 10) % 10
+c = zn % 10
+print(a + b + c)
+----
+
+
+полный импорт, когда нужно использовать несколько функций из модуля -
+--
+import math
+
+result = math.sqrt(16)
+print(result)
+----
+
+
+частичный импорт, в коде указываем только название модуля - 
+--
+from math import sqrt, pi
+
+result = sqrt(16)
+radius = 5
+area = pi * radius**2
+print(area)
+----
+
+
+65
 
 
 
