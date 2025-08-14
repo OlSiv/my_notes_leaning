@@ -544,16 +544,41 @@ else:
 ----
 
 
+строка - str -
+--
+s = "Alex"
+print(type(s))
+----
+<class 'str'>
+------
 
-95
+
+--
+name = "Alex"
+print(len(name))
+----
+4
+------
 
 
+in -
+--
+name = "Alex"
+print("A" in name)
+----
+True
+------
 
 
+эскейп-последовательности (экранированные последовательности) - экранирование символов с помощью обратного слеша - \ -
+--
+print("Alex name \"Alex Green\" is work")
+----
+Alex name "Alex Green" is work
+------
 
 
-
-
+106
 
 
 
