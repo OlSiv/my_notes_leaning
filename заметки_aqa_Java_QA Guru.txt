@@ -55,7 +55,7 @@ https://github.com/qa-guru/getting-started-java/wiki
 
 ручное тестирование знать не обязательно
 
-раньше новая версия приложения выходила рах в месяц, сейчас обновления выкатывают по 5 раз в день - ручной труд уже не поможет, нужно автоматизировать 
+раньше новая версия приложения выходила раз в месяц, сейчас обновления выкатывают по 5 раз в день - ручной труд уже не поможет, нужно автоматизировать 
 
 
 00-23-32
@@ -95,7 +95,19 @@ https://github.com/qa-guru/getting-started-java/wiki
 - нотификация
 - процессы 
 
-09-35
+руководство по запуску первого автотеста - 
+- установка JDK (Java SE Developer Kit)
+- установка Gradle 
+- установка Git 
+- установка IDEA 
+- клонирование проекта в Idea из GitHub 
+- запуск теста 
+
+инструкции тут - 
+https://github.com/qa-guru/getting-started-java/wiki
+
+
+00-16-00
 
 
 
@@ -104,6 +116,39 @@ https://github.com/qa-guru/getting-started-java/wiki
 
 
 
+
+
+
+
+
+
+
+
+Полезные ссылки:
+
+Автотест на авторизацию: 
+https://github.com/qa-guru/getting-started-java/tree/login
+
+Инструкция по настройке рабочей среды:
+https://github.com/qa-guru/getting-started-java/wiki
+
+Большой проект: 
+https://github.com/qa-guru/allure-testops-tests/
+
+Автотесты на три платформы из одного репозитория:
+https://github.com/autotests-cloud/selenide-web-ios-android-tests
+
+Дипломные проекты выпускников курса: https://github.com/SmallSparkle/m2.ru_test_project https://github.com/4erep/WebShop_final_project/
+https://github.com/daramirra/qaGuruDiploma
+https://github.com/ElenaSkorobodilova
+https://github.com/vonoelv/bookmate-test-project
+
+
+
+Задание
+1. Установите необходимый инструментарий по инструкции https://github.com/qa-guru/getting-started-java
+2. Скопируйте код из репозитория http://github.com/qa-guru/getting-started
+3. Запустите автотест
 
 
 
