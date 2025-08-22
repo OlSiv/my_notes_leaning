@@ -6,6 +6,8 @@ https://s1.sharewood.tech/threads/qa-guru-avtomatizacija-testirovanija-java-2023
 https://cloud.mail.ru/public/rfRZ/gCVoTkEho
 -
 жд4тб
+-
+telegram - избранное - 22.08.2025
 
 
 
@@ -149,6 +151,8 @@ https://github.com/vonoelv/bookmate-test-project
 1. Установите необходимый инструментарий по инструкции https://github.com/qa-guru/getting-started-java
 2. Скопируйте код из репозитория http://github.com/qa-guru/getting-started
 3. Запустите автотест
+
+
 
 
 
