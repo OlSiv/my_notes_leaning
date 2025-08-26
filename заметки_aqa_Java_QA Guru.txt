@@ -149,6 +149,64 @@ https://github.com/qa-guru/getting-started-java/wiki
 инструкции тут - 
 https://github.com/qa-guru/getting-started-java/wiki
 
++
+
+установить Java -
+
+проверить установлена ли и версию - 
+--
+java --version 
+----
+
++
+
+если не установлена, то - 
+
+рекомендуется поставить 17 версию Java. Для этого необходимо скачать файл -
+https://www.oracle.com/ru/java/technologies/javase/jdk17-archive-downloads.html
+
+Для скачивания потребуется логин или регистрация на сайте Oracle. Если лень регистрироваться, можно скопировать реквизиты доступа -
+http://bugmenot.com/view/oracle.com
+
++
+
+В последнее время, в связи с блокировкой ресурсов Oracle на территории РФ, скачивание JDK может быть затруднительным. Если вы не смогли скачать JDK с сайта Oracle, воспользуйтесь одним из следующих вариантов -
+
+https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/downloads-list.html
+
+https://adoptium.net/temurin/releases/?version=17
+
+https://bell-sw.com/pages/downloads/#jdk-17-lts
+
++
+
+или воспользуйтесь следующей инструкцией для установки OpenJDK -
+Инструкция:
+
+- Скачать OpenJDK по этой ссылке -
+https://download.oracle.com/java/17/archive/jdk-17.0.10_windows-x64_bin.zip
+
+- Открыть архив и скопировать папку 17.0.10 на диск (в этом конкретном примере папка скопирована на диск D:\)
+
++
+
+Установить JDK и скопировать путь папки
+
++
+
+прописать переменные среды - 
+Мой компьютер - Свойства - Дополнительные параметры системы (вверху справа) - Переменные среды - в нижнем окне - Создать - 
+JAVA_HOME
+C:\Java\jdk11 (путь к папке где находится Java)
+
++
+
+Следующие этапы (установка Gradle, установка IntelliJ Idea и установка Git) также потребуют перезагрузки компьютера.
+
+=
+
+
+
 
 
 00-16-30
