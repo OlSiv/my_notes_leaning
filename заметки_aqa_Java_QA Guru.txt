@@ -83,8 +83,16 @@ https://github.com/qa-guru/getting-started-java/wiki
 
 тесты запускаются не на ноутбуке, а на сервере (инфраструктуре)
 
-00-42-00
+коментарий - 
+--
+/*
+text
+text
+text
+*/
+----
 
+46-40
 
 
 
