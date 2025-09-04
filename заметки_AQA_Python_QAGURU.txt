@@ -1,5 +1,7 @@
 
-[А. Ерошенко, С. Хомутинин, С. Васенков] Автоматизация тестирования на Python (2024)
+[А. Ерошенко, С. Хомутинин, С. Васенков] Автоматизация тестирования на Python (2024) - 
+
+16 поток 
 
 https://bw10.skladchik.org/threads/379926/
 
@@ -7,15 +9,127 @@ https://master79.piratehub.cc/threads/a-eroshenko-s-xomutinin-s-vasenkov-avtomat
 
 https://cloud.mail.ru/public/GuAd/bBCbDiueW
 
-sd256gb
-
 жд4тб
+
+sd256gb
 
 
 
 ************************************
 
-1 - 
+1 - видео -
+
+autotest.cloud 
+- генератор проектов и фриланс биржа 
+
+autotest.ai 
+- собственный сервис с нейросетью 
+
+
+
+основы автоматизации тестирования - 
+- код 
+- визуализация результатов 
+- инфраструктура 
+- нотификация 
+- процессы 
+
+
+
+процесс разработки автотестов мы будем начинать ещё на этапе постановки задач 
+
+
+
+github.com/qa-guru/getting-started-python/
+
+
+
+--
+google_should_find_selene.py
+--
+from selene import browser, be, have 
+
+
+browser.open('https://google.com')
+
+browser.element('[name="q"]').should(be.blank).type('yashaka/selene').press_enter()
+
+browser.element('[id="search"]').should(have.text('Selene - User-oriented Web UI browser test in Python'))
+----
+- это автотест на поиск в google 
+
+
+
++ такой же (но немного другой) код из github - 
+--
+from selene import browser, be, have
+
+
+browser.open('https://google.com')
+browser.element('[name="q"]').should(be.blank).type('qa.guru').press_enter()
+browser.element('html').should(have.text('About this page'))
+
+# browser.element('[id="search"]').should(have.text('QA.GURU: Курсы тестировщиков'))
+----
+
+
+
+настроить свой компьютер по инструкции - 
+github.com/qa-guru/getting-started-python/wiki 
+
+1 - установить python 
++
+
+2 - установить PyCharm 
++
+
+3 - установить PyTest -
+pip install pytest
+и
+проверить версию - 
+pytest --version
++
+
+4 - установить Selene -
+pip install selene --pre
+
+5 - установить Git 
+и
+проверить версию - 
+git --version 
+
+6 - запуск первого теста
+
+скачать архив -
+https://github.com/qa-guru/getting-started-python.git
+
+распаковать архив 
+
+Запускаем PyCharm и выбираем File -> Open и выбираем папку проекта.
+
+В открывшемся окне проверяем, чтобы в поле Dependencies был указан путь к файлу requirements.txt. Если система не смогла его найти сама, то помогаем вручную(файл requirements.txt всегда должен находиться в корне проекта). Нажимаем кнопку ОК.
+
+Дожидаемся пока завершится индексация и конфигурация интерпретатора.
+
+Переходим в Run -> Run 'google_should_find_selene'. Или нажимаем на названии теста правой кнопкой мыши и выбираем Run 'google_should_find_selene'
+
+Тест запустится, откроется браузер. В конце в консоли должен быть следующий результат. Важно чтобы консоль PyCharm выдала сообщение Process finished with exit code 0
+
+ВАЖНО: Если тест не запускается, или падает из-за всплывающего окна Google, то есть три пути:
+
+1 - Проверить версию Chrome браузера. Версия должна быть последней(это означает что не должно быть доступных обновлений). Если обновления есть, то обновляем браузер.
+
+2 - Если отображается всплывающее окно Google, то добавляем команду после открытия страницы:
+--
+if browser.element(by.text('Accept all')).matching(be.visible): 
+   browser.element(by.text('Accept all')).click()
+----
+
+Текст 'Accept all' может быть другим в зависимости от вашей локализации (если на русском - эта кнопка может называться 'Принять все')
+
+3 - Попробовать переписать тест для Ecosia (https://www.ecosia.org/) или DuckDuckGo (https://duckduckgo.com/)
+
+
 
 =
 
@@ -25,26 +139,7 @@ sd256gb
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+00-21-40
 
 
 
