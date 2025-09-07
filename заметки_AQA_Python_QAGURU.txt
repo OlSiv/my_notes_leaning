@@ -9,7 +9,7 @@ https://master79.piratehub.cc/threads/a-eroshenko-s-xomutinin-s-vasenkov-avtomat
 
 https://cloud.mail.ru/public/GuAd/bBCbDiueW
 
-жд4тб
+полный курс - жд4тб
 
 sd256gb
 
@@ -131,15 +131,90 @@ if browser.element(by.text('Accept all')).matching(be.visible):
 
 
 
-=
+тесты выше - это автоматизация UI 
+
+ход действий начинающего AQA - есть несколько действий (сценариев), которые критичны для автоматизации продукта (например - интернет-магазина) -
+- авторизация 
+- поиск товара 
+- возможность добавления товара в корзину 
+- оплата 
+- ... и так далее 
+
+в одном сценарии может быть несколько ошибок 
+
+после запуска теста должно быть сразу понятно что сломалось 
+
+пусть тестов будет много, но отдельных, большие тесты писать не нужно 
+
+смок-тесты (дымовое тестирование) - автоматизировать в первую очередь 
+
+по 1-2 теста на каждую критическую фитчу
+
+какие-то методы у нас будут общие (общий функционал) 
+
+тесты писать так, чтобы они легко читались 
+
+на рынке selen не очень распространен, распространен selenium 
+
+перепишем наш тест под selenium (с использованием ChatGPT) - 
+"препиши этот автотест на python + selenium - код теста"
+
+код теста который давали переписать ChatGPT - 
+--
+from selene import browser, be, have
+
+
+browser.open('https://google.com')
+browser.element('[name="q"]').should(be.blank).type('qa.guru').press_enter()
+browser.element('html').should(have.text('About this page'))
+
+# browser.element('[id="search"]').should(have.text('QA.GURU: Курсы тестировщиков'))
+----
+
+код, который выдал ChatGPT - 
+--
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+driver = webdriver.Chrome()  # или webdriver.Firefox(), в зависимости от браузера
+driver.maximize_window()
+
+try:
+    driver.get("https://google.com")
+
+    # дождаться появления поля поиска и убедиться, что оно пустое
+    wait = WebDriverWait(driver, 10)
+    search_input = wait.until(EC.presence_of_element_located((By.NAME, "q")))
+    assert search_input.get_attribute("value") == "", "Поле поиска не пустое"
+
+    # ввести запрос и нажать Enter
+    search_input.send_keys("qa.guru")
+    search_input.send_keys(Keys.ENTER)
+
+    # дождаться, что в html страницы появится текст "About this page"
+    wait.until(EC.text_to_be_present_in_element((By.TAG_NAME, "html"), "About this page"))
+
+    # (опционально) проверка, что в блоке результатов есть нужный текст
+    # results = wait.until(EC.presence_of_element_located((By.ID, "search")))
+    # assert "QA.GURU: Курсы тестировщиков" in results.text
+
+finally:
+    driver.quit()
+----
+
+проверить командой, установлен ли selenium - 
+--
+pip show selenium
+----
+
+важно понимать, какой код выдает ChatGpt 
 
 
 
-
-
-
-
-00-21-40
+00-42-55
 
 
 
