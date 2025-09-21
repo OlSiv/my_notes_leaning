@@ -2457,7 +2457,8 @@ python -m main
 
 Знакомство с Docker
 
-
+и также можно пройти бесплатный курс - 
+https://karpov.courses/docker
 
 Ссылки:
 
@@ -2604,12 +2605,201 @@ docker run -d -p 8080:80 --name my-nginx nginx
 -p — пробрасывает порт (host:container).
 --name — задаёт имя контейнера.
 
+- docker ps 
+Показывает список запущенных контейнеров.
+--
+docker ps
+----
+                  
+- docker ps -a
+Показывает все контейнеры, включая остановленные.
+--
+docker ps -a
+----
+                  
+- docker stop
+Останавливает запущенный контейнер.
+--
+docker stop my-nginx
+----
+
+- docker start
+Запускает остановленный контейнер.
+--
+docker start my-nginx
+----
+                  
+- docker restart
+Перезапускает контейнер.
+--
+docker restart my-nginx
+----
+                  
+- docker rm
+Удаляет остановленный контейнер.
+--
+docker rm my-nginx
+----
+
+- docker exec
+Выполняет команду внутри запущенного контейнера.
+--
+docker exec -it my-nginx bash
+----                  
+-it — интерактивный режим с tty.
+
+- docker logs
+Показывает логи контейнера.
+--
+docker logs my-nginx
+----
 
 
 
+3 - Тома (Volumes)
+
+- docker volume create
+Создаёт том для хранения данных.
+--
+docker volume create my-volume
+----
+
+- docker volume ls
+Показывает список томов.
+--
+docker volume ls
+----
+                  
+- docker volume inspect
+Показывает подробную информацию о томе.
+--
+docker volume inspect my-volume
+----
+                  
+- docker volume rm
+Удаляет том.
+--
+docker volume rm my-volume
+----
 
 
 
+4 - Сети (Networks)
+
+- docker network create
+Создаёт пользовательскую сеть.
+--
+docker network create my-network
+----
+                  
+- docker network ls
+Список сетей.
+--
+docker network ls
+----
+                  
+- docker network inspect
+Информация о сети.
+--
+docker network inspect my-network
+----
+                  
+- docker network connect
+Подключает контейнер к сети.
+--
+docker network connect my-network my-container
+----
+
+
+
+5 - Служебные и отладочные команды
+
+- docker inspect
+Детальная информация об объекте (контейнере, образе, томе, сети).
+--
+docker inspect my-container
+----
+                  
+- docker stats
+Ресурсы, потребляемые контейнерами в реальном времени (CPU, RAM).
+--
+docker stats
+----
+                  
+- docker top
+Показывает процессы внутри контейнера.
+--
+docker top my-container
+----
+                  
+- docker info
+Общая информация о Docker Engine.
+--
+docker info
+----
+
+
+
+6 - Очистка системы
+
+- docker system prune
+Удаляет все неиспользуемые контейнеры, образы и сети.
+--
+docker system prune
+----
+                  
+- docker image prune
+Удаляет неиспользуемые образы.
+--
+docker image prune
+----
+                  
+- docker container prune
+Удаляет остановленные контейнеры.
+--
+docker container prune
+----
+
+
+
+Docker — ключевой инструмент современной разработки и тестирования. Он помогает вам не «настраивать» всё вручную, а собирать окружение как код, сохранять его, переносить и масштабировать. В курсе мы будем использовать Docker, чтобы запускать тестируемые сервисы, а также имитировать нагрузку в отдельных контейнерах с помощью Locust
+
+
+
+Установка Docker
+
+Скачать Docker Desktop - 
+https://www.docker.com/products/docker-desktop/
+
+
+1 - Установка Docker на Windows
+
+Шаг 1: Требования
+- Windows 10 или 11 с Hyper-V (Pro/Enterprise) или Windows 10/11 Home с WSL2
+- Включенная виртуализация в BIOS
+
+Шаг 2: Установка Docker Desktop
+- Перейдите на сайт: https://www.docker.com/products/docker-desktop
+- Скачайте установщик для Windows
+- Запустите установку и следуйте инструкциям:
+    - Выберите опцию использовать WSL2 (если Windows Home)
+    - Docker установит необходимые компоненты
+
+Шаг 3: Убедитесь, что всё работает
+- Откройте PowerShell или терминал:
+--
+docker --version docker run hello-world
+----
+- Если выводится сообщение об успешном запуске — всё установлено
+
+Возможные проблемы
+- Проверьте, что включен WSL2:
+--
+wsl --list --verbose
+----
+- Убедитесь, что установлены Ubuntu или другая дистрибуция через Microsoft Store
+
+Зачем устанавливать WSL для Docker на Windows?
 
 
 
