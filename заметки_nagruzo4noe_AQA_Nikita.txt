@@ -2770,6 +2770,7 @@ Docker — ключевой инструмент современной разр
 
 Скачать Docker Desktop - 
 https://www.docker.com/products/docker-desktop/
+- telegram - избранное - 26.09.2025 (10:21)
 
 
 1 - Установка Docker на Windows
