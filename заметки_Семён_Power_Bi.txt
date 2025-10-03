@@ -1390,9 +1390,11 @@ RR = продажи за месяц * 12
  
 
 
+Может мне по SQL это пройти, мне на собесе вчера именно отсюда задания давали - 
 
+https://sql-academy.org/ru/guide/intro-intro
 
-
+https://sql-academy.org/ru/trainer/tasks/28
 
 
 
