@@ -89,6 +89,66 @@ git push -u origin master
 
 
 
-СТЯНУТЬ ИЗМЕНЕНИЯ - 
+СТЯНУТЬ ИЗМЕНЕНИЯ на компьютер - 
 
-git push origin main
+git pull origin main
+
+
+
++++
+
+У меня на компьютере есть директория performance-tests, подскажи как создать из неё репозиторий на GitHub
+-
+Ниже — пошаговая инструкция (предположение: вы используете терминал на macOS/Linux или Git Bash на Windows). Все команды выполняйте внутри родительской папки или в самой директории performance-tests.
+
+1) Инициализировать локальный репозиторий и добавить файлы
+- Откройте терминал и перейдите в папку:
+  ```
+  cd /путь/до/performance-tests
+  ```
+- Инициализируйте Git и добавьте файлы:
+  ```
+  git init
+  git add .
+  git commit -m "Initial commit"
+  ```
+
+2) Создать удалённый репозиторий на GitHub
+
+- Вариант A — через веб-интерфейс:
+  - Перейдите на github.com, войдите в аккаунт, нажмите New repository.
+  - Введите имя (например, performance-tests), опишите при необходимости, не создавайте README/LICENCE (чтобы избежать конфликтов) и создайте репозиторий.
+
+- Вариант B — через командную строку с gh (GitHub CLI) установленным и аутентифицированным:
+  ```
+  gh repo create your-username/performance-tests --public --source=. --remote=origin --push
+  ```
+  (замените --public на --private при необходимости)
+
+3) Подключить удалённый репозиторий и запушить (если вы создали репозиторий через веб)
+- Скопируйте URL репозитория (HTTPS или SSH) с GitHub и выполните:
+  ```
+  git remote add origin https://github.com/your-username/performance-tests.git
+  git branch -M main
+  git push -u origin main
+  ```
+  (если используете SSH, подставьте SSH-URL вместо HTTPS)
+
+4) Если есть существующий README или другие изменения, синхронизируйте ветки
+- При конфликте (если на GitHub уже есть коммит), выполните:
+  ```
+  git pull --rebase origin main
+  git push
+  ```
+
+5) Проверка и дополнительные настройки
+- Убедиться, что репозиторий на GitHub содержит файлы: откройте страницу репо.
+- Добавить .gitignore, если нужно:
+  ```
+  echo "node_modules/" >> .gitignore
+  git add .gitignore
+  git commit -m "Add .gitignore"
+  git push
+  ```
+- Настроить ветку по умолчанию, ветки защиты, CI и т.д. через настройки GitHub.
+
