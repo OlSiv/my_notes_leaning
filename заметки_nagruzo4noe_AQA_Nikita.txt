@@ -3330,9 +3330,14 @@ print(cache.get("times"))
 
 
 
-09-20
+создадим новый докерфайл - Dockerfile.redis - 
+--
+Dockerfile.redis
+-- 
+..........
 
 
+09-15
 
 
 
