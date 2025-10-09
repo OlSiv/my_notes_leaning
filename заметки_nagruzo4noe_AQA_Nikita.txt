@@ -3334,10 +3334,15 @@ print(cache.get("times"))
 --
 Dockerfile.redis
 -- 
-..........
+FROM python:3.11-slim
+WORKDIR /app
+COPY . .
+RUN pip install redis
+CMD ["python", "docker_compose_basics.py"]
+----
 
 
-09-15
+10-40
 
 
 
