@@ -3604,11 +3604,17 @@ https://www.postman.com/downloads/
 
 Установка Postman на Windows
 
+
+
 Способ 1: Через официальный сайт
 - Перейдите на сайт: https://www.postman.com/downloads/
-- Выберите версию для Windows (x64) и скачайте .exe установщик.
+- Выберите версию для Windows (x64) и скачайте .exe установщик - telegram - избранное - 13.10.2025 (20:56)
 - Запустите скачанный файл и следуйте инструкциям.
 - После установки Postman можно запустить из меню Пуск или ярлыка на рабочем столе.
+
+токен - telegram - избранное - 13.10.2025 (21:56)
+
+
 
 Способ 2: Через Winget (если доступен) -
 --
@@ -3620,7 +3626,157 @@ Winget — менеджер пакетов от Microsoft. Работает в W
 
 Установка Postman на macOS
 
+
+
+Способ 1: Через официальный сайт
+- Перейдите на https://www.postman.com/downloads/
+- Скачайте .zip архив для macOS.
+- Распакуйте архив и перетащите приложение Postman в папку Applications.
+- Запустите Postman через Launchpad или Spotlight (Cmd + Space → Postman).
+
+
+
+Способ 2: Через Homebrew -
+--
+brew install --cask postman
+----
+
+
+
+Установка Postman на Linux
+
+
+
+Универсальный способ: Snap (подходит для большинства дистрибутивов) -
+--
+sudo snap install postman
+----
+Требуется установленный Snap (обычно есть в Ubuntu, но можно поставить отдельно).
+
+
+
+Установка на Debian / Ubuntu -
+
+
+
+Способ 1: Snap (предпочтительно)
+--
+sudo snap install postman
+----
+
+
+
+Способ 2: Ручная установка из tar.gz
+1 - Скачайте архив с официального сайта, выбрав версию для Linux.
+
+2 - Распакуйте архив:
+--
+tar -xvzf Postman-linux-x64.tar.gz
+----
+
+3 - Переместите в системную папку (по желанию):
+--
+sudo mv Postman /opt/Postman
+----
+
+4 - Добавьте ярлык (опционально):
+Создайте файл postman.desktop:
+--
+sudo nano /usr/share/applications/postman.desktop
+----
+
+И вставьте:
+--
+[Desktop Entry]
+Name=Postman
+Exec=/opt/Postman/Postman
+Icon=/opt/Postman/app/resources/app/assets/icon.png
+Type=Application
+Categories=Development;
+----
+
+
+
+Установка на Fedora
+
+
+
+Способ 1: Snap
+--
+sudo dnf install snapd
+sudo ln -s /var/lib/snapd/snap /snap
+sudo snap install postman
+----
+
+
+
+Способ 2: Flatpak (если Snap не нравится)
+--
+flatpak install flathub com.getpostman.Postman
+flatpak run com.getpostman.Postman
+----
+
+
+
+Установка на Arch Linux
+--
+yay -S postman-bin
+----
+Или используйте paru, если он у вас установлен
+
+
+
+Проверка установки - После установки:
+
+1 - Откройте Postman
+2 - Убедитесь, что открывается окно приложения
+3 - Проверьте версию:
+- Через меню: Help → About
+- Либо через командную строку, если установлен через Snap:
+​--
+snap info postman
+----
+
+
+
+******************************************
+
+4.1 Начало работы с Git
+
+
+
+Знакомство с Git
+
+Ссылки:
+
+- Официальный сайт Git -
+https://git-scm.com/
+
+- Игра Learn Git Branching для изучения Git -
+https://learngitbranching.js.org/?locale=ru_RU
+
+- Документация на случай, если что-то пошло не так -
+https://dangitgit.com/ru
+
+Важно! Я настоятельно рекомендую вам пройти интерактивную игру Learn Git Branching (ссылка выше) для изучения принципов работы с Git. Перейдите по ссылке и пройдите игру полностью, вдумчиво читайте теорию и подсказки. Без завершения этого обучения я не рекомендую переходить к следующим шагам.
+
+
+
+Что такое Git?
+
+Git — это распределенная система контроля версий, которая позволяет разработчикам отслеживать изменения в коде, работать над проектами совместно и управлять различными версиями файлов. Git был создан Линусом Торвальдсом в 2005 году и с тех пор стал одним из самых популярных инструментов для управления исходным кодом.
+
+
+
 =
+
+
+
+
+
+
+
+
 
 
 
