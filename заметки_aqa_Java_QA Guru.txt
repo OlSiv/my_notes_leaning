@@ -247,6 +247,7 @@ java --version
 
 рекомендуется поставить 17 версию Java. Для этого необходимо скачать файл -
 https://www.oracle.com/ru/java/technologies/javase/jdk17-archive-downloads.html
+(telegram - избранное - 20.10.2025 (23:21))
 
 Для скачивания потребуется логин или регистрация на сайте Oracle. Если лень регистрироваться, можно скопировать реквизиты доступа -
 http://bugmenot.com/view/oracle.com
@@ -287,7 +288,7 @@ https://download.oracle.com/java/17/archive/jdk-17.0.10_windows-x64_bin.zip
 Создать - 
 --
 Переменная - JAVA_HOME
-Значение - C:\Java\jdk11 (путь к папке где находится Java)
+Значение - C:\Java\jdk17 (путь к папке где находится Java)
 ----
 Нажать «OK»;
 Еще раз нажать «ОК»
@@ -302,6 +303,7 @@ https://download.oracle.com/java/17/archive/jdk-17.0.10_windows-x64_bin.zip
 
 - Перейти на сайт - 
 https://gradle.org/releases/
+(telegram - избранное - 20.10.2025 (23:27))
 
 - На странице найти раздел v7.4.x;
 
@@ -347,7 +349,7 @@ https://git-scm.com/downloads
 
 3 - В окне выбора компонентов убрать галочку с Git GUI here, нажать кнопку Next
 
-4 - В окне Adjusting your PATH environment убедиться, что выбрана опция Git from the command line and also from 3rd-party software, нажать кнопку Nex
+4 - В окне Adjusting your PATH environment убедиться, что выбрана опция Git from the command line and also from 3rd-party software, нажать кнопку Next
 
 5 - Нажать Next без изменения параметров во всех остальных окнах
 
@@ -366,6 +368,7 @@ git --version
 
 1 - Перейти по ссылке - 
 https://www.jetbrains.com/ru-ru/idea/download
+(telegram - избранное - 20.10.2025 (23:37))
 
 2 - В правом верхнем углу нажать синюю кнопку Скачать
 
