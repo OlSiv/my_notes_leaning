@@ -154,30 +154,81 @@ public class LoginTests {
 
 любая программа - это папка с текстовыми файлами (инструкциями)
 
+CTRL + D - дублировать строку 
+
+автор сначала учит автотестам, а потом уже по ходу дела языку Java 
+
+метод - .pressEnter(); - 
+--
+$("[name=password]").setValue("qagurupassword").pressEnter();
+----
+
+если какое-то действие не получается выполнить в течении 4 секунд, то тест падает 
+
+хороший инженер должен знать - Java, Python, TypeScript 
 
 
 
-00-53-30
+цели обучения - 
+
+1 - нуучиться разрабатывать e2e-автотесты на web, mobile, api 
+
+2 - научиться решать инфраструктурные задачи - Git, Jenkins, Selenoid, Allure TestOps 
+
+3 - отправлять нотификации о результатах теста в мессенджерах (Telegram, Slack etc)
+
+4 - выстраивать процессы (workflow) в TMS Allure TestOps в интеграции с Jira 
+
+5 - теория тестирования, Manual QA 
+
+6 - устроиться на работу - подход с заранее выполненными тестовыми заданиями (проектом)
 
 
 
+как устроиться на работу - выписать 10 вакансий, которые понравились - на каждую вакансию сделать по небольшому проекту (5-10 тестов), всё это красиво упаковать -
+github.com/vonoelv/bookmate-test-project
+- и написать - уважаемый работодатель, хочу у вас работать, вот готовый проект под ваш продукт (то есть товар лицом)
+
+учиться можно до бесконечности, но не всё нужно будет в работе  
+
+курс идет 3 месяца 
+
+будет блок по основам Java 
+
+к лекциям даются подробные конспекты 
+
+библиотека для уведомлений в Telegram, Slack и т.д. - 
+github.com/qa-guru/allure-notifications 
+
+проект от выпускницы - 
+github.com/ElenaSkorobodilova 
+для мобильного проложения -
+github.com/ElenaSkorobodilova/financisto-mobile-tests
+
+основы ручного тестирования (4_000 р.) - 
+qa.guru/start
+
+qa.guru/teach/control/stream/index - тут ошибка 
+
+открытое занятие по красивому оформлению профилей - 
+qa.guru/teach/control/stream/view/id/465999013 - тут ошибка
+
+отдельно делить тестовые проекты на UI (фронтенд) и REST API (как пример - github.com/ElenaSkorobodilova/ElenaSkorobodilova)
+
+другой ученик сделал тесты на api, mobile и web из одного репозитория - 
+github.com/vonoelv/bookmate-test-project
+
+операционная система для работы - Windows или Mac 
+
+з/п через 2 года - не меньше 2_000 евро 
 
 
 
+******************************************
 
+2 - 
 
-
-
-
-
-
-
-
-
-
-
-
-
+=
 
 
 
@@ -196,9 +247,7 @@ public class LoginTests {
 
 
 
-***
-
-18 поток - 
+18 поток (начало потока - 08.02.2023) - 
 
 ******************************************
 
@@ -385,7 +434,8 @@ https://www.jetbrains.com/ru-ru/idea/download
 1 - Открыть страницу -
 https://github.com/qa-guru/getting-started
 
-2 - Нажать зелёную кнопку "Code", в открывшемся модальном окне скопировать строчку с адресом репозитория (в HTTPS)
+2 - Нажать зелёную кнопку "Code", в открывшемся модальном окне скопировать строчку с адресом репозитория (в HTTPS) -
+https://github.com/qa-guru/getting-started-java.git
 
 3 - Запустить IntelliJ IDEA
 
@@ -397,7 +447,8 @@ https://github.com/qa-guru/getting-started
 
 7 - В появившемся окне нажать синюю кнопку "Trust Project"
 
-8 - Выбрать File -> Settings, в окне поиска ввести gradle, в открывшемся пункте настроек выставить значения как на скриншоте (Telegram - избранное - 28.08.2025)
+8 - Выбрать File -> Settings, в окне поиска ввести gradle, в открывшемся пункте настроек выставить значения как на скриншоте -
+(telegram - избранное - 28.08.2025)
 
 9 - Нажать кнопку "OK", подождать пока настройки Gradle обновятся
 
@@ -463,6 +514,59 @@ https://github.com/vonoelv/bookmate-test-project
 2. Скопируйте код из репозитория http://github.com/qa-guru/getting-started
 3. Запустите автотест
 
+
+
+программирование - это написание текстовых файлов 
+
+теперь автоматизируем шаги (видео - 00-18-18) -
+- открыть форму авторизации -
+https://qa.guru/cms/system/login - старая 
+https://school.qa.guru/cms/system/login - новая 
+- ввести адрес электронной почты 
+- ввести пароль 
+- нажать кнопку "Войти"
+- Нажать на кнопку "Личный кабинет"
+- проверить успешную авторизацию 
+
+создадим новый класс - 
+File - New - Java Class - LoginTests
+--
+LoginTests.java 
+--
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.Test;
+import static com.codeborne.selenide.Selenide.open;
+
+
+//      ввести адрес электронной почты 
+//      ввести пароль 
+//      нажать кнопку "Войти"
+//      нажать на кнопку "Личный кабинет"
+//      проверить успешную авторизацию 
+
+
+public class LoginTests {
+    
+
+    @Test
+    void successfullLoginTest() {
+	    Configuration.holdBrowserOpen = true; // чтобы браузер не закрывался 
+	
+	
+//      открыть форму авторизации	
+	    open("https://school.qa.guru/cms/system/login");
+		
+		
+	}    
+}
+----
+- после open - нажать ALT + ENTER для импорта 
+
+ПКМ - посмотреть код 
+
+
+
+00-24-00
 
 
 
