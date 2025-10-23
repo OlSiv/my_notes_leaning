@@ -8,6 +8,7 @@
 https://s1.sharewood.tech/threads/qa-guru-avtomatizacija-testirovanija-java-2023.403042/
 -
 https://cloud.mail.ru/public/rfRZ/gCVoTkEho
+(но там весь курс в 6 архивах, нужно распаковывать сразу всё)
 -
 жд4тб
 -
@@ -42,10 +43,7 @@ telegram - избранное - 20.08.2025
 
 
 
-***
-
 17 поток - 
-
 
 ******************************************
 
@@ -228,9 +226,7 @@ github.com/vonoelv/bookmate-test-project
 
 2 - 
 
-=
-
-
+...
 
 ******************************************
 ******************************************
@@ -562,87 +558,90 @@ public class LoginTests {
 ----
 - после open - нажать ALT + ENTER для импорта 
 
-ПКМ - посмотреть код 
+ПКМ - посмотреть код - нажать кнопку вверху слева чтобы подсвечивались куски кода, когда тыкаешь на элемент страницы 
 
+тыкаем в поле на сайте, в коде написано - 
+--
+...
+name = "email"
+...
+----
 
+добавим следующую строку после строки, которая начинается с open - 
+--
+$("[name=email]").setValue("hello@qa.guru");
+----
 
-00-24-00
+аналогичным образом поступаем и с полем "пароль" -
+--
+$("[name=password]").setValue("qagurupassword");
+----
 
+чтобы нажать на сайте кнопку "Войти" - в коде смотрим что на кнопке такой код -
+--
+...
+<button class = "xdget-block xdget-button btn btn-succsess"
+...
+----
+- берем последнее значение - btn-succsess (далее в занятиях объяснят как правильно находить в коде html такие элементы)
 
+пишем код - 
+--
+$("[class=btn-success]").click();
+----
+- можно сократить такие надписи, но для class, а не для name - 
+--
+$(".btn-success").click();
+----
 
+можно смотреть что за тегом <div class в html-коде -
+--
+<div class="main-heder__login"
+----
 
+--
+$(".main-heder__login").click();
+$(".logined-form").shouldHave(text("QA_GURU_BOTv"));
+----
 
+в итоге получилось -
+--
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 
+public class LoginTests {
 
+    @Test
+    void successfullLoginTest() {
+        Configuration.holdBrowserOpen = true; // чтобы браузер не закрывался
 
+        // открыть форму авторизации
+        open("https://school.qa.guru/cms/system/login");
 
+        // ввести адрес электронной почты
+        $("[name=email]").setValue("hello@qa.guru");
 
+        // ввести пароль
+        $("[name=password]").setValue("qagurupassword");
 
+        // нажать кнопку "Войти"
+        $("[class=btn-success]").click();
 
+        // нажать на кнопку "Личный кабинет"
+        $(".main-heder__login").click();
 
+        // проверить успешную авторизацию
+        $(".logined-form").shouldHave(text("QA_GURU_BOT"));
+    }
+}
+----
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+00-36-00
