@@ -464,26 +464,6 @@ https://github.com/qa-guru/getting-started-java.git
 
 
 
-
-
-
-00-16-30
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Полезные ссылки:
 
 Автотест на авторизацию: 
@@ -604,6 +584,8 @@ $(".main-heder__login").click();
 $(".logined-form").shouldHave(text("QA_GURU_BOTv"));
 ----
 
+
+
 в итоге получилось -
 --
 import com.codeborne.selenide.Configuration;
@@ -617,8 +599,15 @@ import static com.codeborne.selenide.Selenide.open;
 public class LoginTests {
 
     @Test
-    void successfullLoginTest() {
-        Configuration.holdBrowserOpen = true; // чтобы браузер не закрывался
+    void successfullLoginWithCommentsTest() {
+	
+        Configuration.holdBrowserOpen = true; // чтобы браузер не закрывался после выполнения 
+		
+		Configuration.browser = "fairfox"; // чтобы по дефолту тест запускался в браузере FairFox 
+
+		Configuration.browserSize = "1920x1080"; // задает размер окна браузера 
+		
+		
 
         // открыть форму авторизации
         open("https://school.qa.guru/cms/system/login");
@@ -643,5 +632,39 @@ public class LoginTests {
 
 
 
+авторизация по СМС - попросить разработчиков чтобы отключили при тестировании или сделали хаб для тестовой авторизации 
 
-00-36-00
+
+
+Работоспособность теста покажет, что - 
+- фронтенд работает 
+- бекэнд работает 
+- базы данных работают 
+- сеть внутри продукта работает 
+
+
+
+цели обучения - 
+1 - научиться разрабатывать e2e-автотесты на web, mobile, api 
+2 - научиться решать инфраструктурные задачи - Git, Jenkins, Selenoid, Allure TestOps 
+3 - отправлять нотификации о результатах теста в мессенджерах (Telegram, Slack etc)
+4 - выстраивать процессы (workflow) в TMS Allure TestOps в интеграции с Jira 
+5 - теория тестирования, Manual QA 
+6 - устроиться на работу - подход с заранее выполненными тестовыми заданиями (проектом) - взять сайт компании, написать 10 тестов, красиво упаковать со скриншотами и т.п., и показать потенциальному работодателю 
+
+
+
+ДЗ - настроить компьютер и запустить автотест - 
+https://github.com/qa-guru/getting-started-java/wiki 
+
++++
+
+
+
+******************************************
+
+2 - 
+
+=
+
+
