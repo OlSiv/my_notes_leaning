@@ -25,6 +25,9 @@ https://bw10.skladchik.org/threads/java-avtomatizacija-testirovanija-qa-guru.397
 https://cloud.mail.ru/public/jyZU/JeGZsZjaJ
 - 
 telegram - избранное - 20.08.2025
+(тут можно скачивать по 3 урока + отдельно бонусные, если ссылка на mail.ru станет недоступна)
+
+- изучай по 1 часу видео в день
 
 
 
@@ -665,6 +668,128 @@ https://github.com/qa-guru/getting-started-java/wiki
 
 2 - 
 
-=
+Профессионально работаем с IntelliJ IDEA 
+
+1. Основы
+2. Git and Github
+3. Docker
+4. Базы данных
+5. HTTP Client
+6. Selenium
+7. BDD Support
+
+Дополнительные материалы для изучения:
+
+- Конспект лекций -
+https://github.com/qa-guru/knowledge-base
+
+- Полезные ссылки -
+-- Tips and Tricks on YouTube: https://www.youtube.com/c/intellijidea/ 
+-- Shortcuts: IDE shortcuts Reference
+-- IntelliJ IDEA Blog: https://blog.jetbrains.com/idea/ 
+-- JetBrains Toolbox: https://www.jetbrains.com/toolbox-app/ 
+-- Книга по Git: https://git-scm.com/book/en/v2
 
 
+
+для IDE есть множество плагинов 
+
+в окне где открываются проекты - внизу слева Help - Keymap Reference (горячие клавиши)- распечатать 
+
+создадим новый проект на Gradle 
+
+двойное нажатие SHIFT - откроет строку поиска 
+
+ALT + INS - откроет меню New 
+
+в IDE - искать можно везде, допустим как написано строкой выше открыли меню New и начинаем печатать, автоматически текст появляется в строке поиска 
+
+Refactor - Extract/Introduce - Variables 
+
+CTRL + ALT + V 
+
+- потом много ещё рассказывал, послушал его конечно, но вот сомневаюсь что это необходимо мне на данном этапе...
+
+ALT + ENTER - разберись... - выплывает меню с вариантами 
+
+CTRL + ПРОБЕЛ - 2 раза 
+
+CTRL + SHIFT + SPACE - выведет варианты 
+
+Как запускать тесты - кликаем на класс теста - ALT + ENTER - выплывают варианты Run 
+
+при использовании Git - обязательно нужно коммитить каталог - .idea - там лежат настройки проекта 
+
+
+
+--
+FirstTest.java
+--
+package com.demo;
+
+import org.junit.jupiter.api.Test;
+
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class FirstTest {
+
+    @Test
+    void shouldOpen() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        LocalDate localDate = LocalDate.parse("28.10.2025", formatter);
+        assertEquals(DayOfWeek.TUESDAY, localDate.getDayOfWeek());
+    }
+}
+----
+
+Git - Clone - вставить адрес 
+
+Packages (вверху слева в IDE) - структура по пакетам 
+
+в строке поиска - ...LocatorTest.com... - можно найти вбив таким образом - LocaTest 
+
+CTRL + Q - документация 
+
+CTRL + B - посмотреть информацию о методе 
+
+CTRL + ALT + > - вперед 
+
+CTRL + ALT + < - назад 
+
+CTRL + E - история где мы были для быстрого перехода назад 
+
+CTRL + SHIFT + E - история где мы были с участками кода 
+
+CTRL + F11 - сделать закладку и присвоить ей название 
+
+окно Favorites - там все сделанные закладки 
+
+SHIFT + F11 - найти сделанные закладки
+
+также можно писать тудушки (коментарии к коду) -
+//todo artamonov remove it 
+
+чтобы открыть и редактировать сторонний код - 
+SHIFT 2 раза - искать Scratch File - создать (можно создать любой тип файла - .json, .md и т.д.) - они будут хранится в специальном каталоге IDE, в любом проекте они будут показываться 
+
+в IDE внизу слева - значок Git - там можно смотреть историю коммитов 
+
+CTRL + K - создать коммит 
+
+CTRL + ENTER - отправить коммит 
+
+CTRL + SHIFT + K - отправить push 
+
+git rebase - слить 2 коммита в один 
+
+Docker Plugin - плагин Docker 
+
+ALT + 8 - откроет окно Services - Add service - Docker 
+
+
+
+01-20-00
