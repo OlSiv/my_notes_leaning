@@ -881,8 +881,6 @@ ssh-keygen -t rsa -b 4096 -C "ваш_email@example.com"
 
 
 
-
-
 00-21-00
 
 
