@@ -4629,6 +4629,11 @@ cd performance-qa-engineer-course
 
 
 
+потом я перекинул этот проект в свой github - 
+https://github.com/OlSiv/performance-qa-engineer-course.git
+
+
+
 Шаг 2. Настраиваем виртуальное окружение Python
 
 Создадим изолированное окружение, чтобы не устанавливать зависимости глобально.
@@ -4682,7 +4687,6 @@ docker build -f Dockerfile.base -t base-service .
    . — путь к контексту сборки (текущая директория).
    
 Важно! Этот шаг обязателен, иначе последующий docker compose up не сможет корректно собрать сервисы, основанные на base-service.
-
 
 
 
