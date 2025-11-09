@@ -1016,9 +1016,49 @@ build/
 
 на github сделал репозиторий под этот проект - my-tests-4
 
+Gradle - это сборщик проектов, как и Maven, который работает на языке раметки XML, но Gradle более современный и лаконичный
+
+проект с примерами автотестов в различных вариациях - 
+github.com/allure-examples/allure-junit5-example 
+но перекидывает сюда - 
+https://github.com/allure-examples/junit5-kotlin-maven
+
+Если в проекте уже стоит Maven, не нужно его переписывать на Gradle - если работает, не нужно ничего трогать 
+
+Gradle работает быстрее, чем Maven 
 
 
-Gradle 
+--
+build.gradle 
+--
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation (
+        "com.codeborne:selenide:6.11.2",
+        "org.junit.jupiter:junit-jupiter:5.9.2")
+        // это библиотеки
+}
+
+tasks.withType(JavaCompile){
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+}
+----
+
+build.gradle - это файл входа в проект 
+
+пример более объемного build.gradle для web и мобильных приложений - 
+github.com/autotests-cloud/selenide-web-ios-android-tests/blob/master/build.gradle
 
 
 
@@ -1026,7 +1066,11 @@ Gradle
 
 
 
-00-12-12
+
+
+
+
+00-40-00
 
 
 

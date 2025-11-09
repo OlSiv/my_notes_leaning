@@ -5,6 +5,10 @@ jupyter notebook
 
 https://bw10.skladchik.org/threads/analiz-dannyx-na-python-s-glebom-mixajlovym-master-klass-udemy-gleb-mikhaylov.319851/
 
+https://cloud.mail.ru/public/zF5o/dVqA9mCkM
++
+в telegram искать этот курс и другие по ключевику "Глеб"
+
 Все материалы и код -
 https://github.com/glebmikha/data-analysis-master-class 
 
@@ -105,6 +109,7 @@ csv - это формат данных, где данные разделены �
 import pandas as pd 
 
 df = pd.read_csv(r'C:\my_proj\analitika_gleb_mihaylov_files\german-credit.csv')
+df = pd.read_csv(r'C:\my_\my_p\gleb_mihailov_python\kod_avtora\german-credit.csv')
 
 df
 ----
