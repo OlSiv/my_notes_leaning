@@ -187,12 +187,15 @@ https://datalens.tech/
 
 Курс по Docker
 https://stepik.org/course/123300/syllabus
+- бесплатно - записался
 
 Курс по SQL
 https://stepik.org/course/63054/syllabus
+- бесплатно - записался
 
 Курс по оптимизации SQL запросов (от автора текущего курса)
 https://stepik.org/course/215412/promo
+- бесплатно - записался
 
 
 

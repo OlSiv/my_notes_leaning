@@ -1018,6 +1018,10 @@ build/
 
 Gradle - это сборщик проектов, как и Maven, который работает на языке раметки XML, но Gradle более современный и лаконичный
 
+Сборщик определяет какие технологии и зависимости будут использованы в проекте и как проект будет запускаться 
+
+Сборщик берет все файлы, что указаны, и из этих файлов компилирует проект
+
 проект с примерами автотестов в различных вариациях - 
 github.com/allure-examples/allure-junit5-example 
 но перекидывает сюда - 
@@ -1062,25 +1066,44 @@ github.com/autotests-cloud/selenide-web-ios-android-tests/blob/master/build.grad
 
 
 
+--
+build.gradle 
+--
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation (
+        "org.junit.jupiter:junit-jupiter:5.9.2")
+}
+
+test {
+    useJUnitPlatform()
+}
+----
+- нажать ПКМ - Link Gradle Project (это скажет IDE что это проект Gradle)
+
+
+
+создадим класс с тестом - 
+ПКМ на папке проекта - New - Directory - src/test/java 
+
+обычно в папках scr/main/java и scr/main/resources лежат файлы проекта, а в папках scr/test/java и scr/test/resources лежат файлы тестов 
+
+в папке - название проекта - src - test - java - создадим - 
+New - JavaClass - JUnitExamples 
 
 
 
 
 
 
-
-
-00-40-00
-
-
-
-
-
-
-
-
-
-
+00-55-15
 
 
 

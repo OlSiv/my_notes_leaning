@@ -1,0 +1,79 @@
+
+https://bw10.skladchik.org/threads/avtomatizacija-testirovanija-na-python-tarif-bez-domashnix-zadanij-evgenij-okulik.457190/
+
+https://okulik.by/video/
+
+https://www.youtube.com/@SeniorTester/videos
+
+
+
+>>>>>>>>>
+
+материалы - на жд4тб и тут - 
+https://drive.google.com/drive/folders/1u4fmekLsBK9Q3gRk7vIGRB1dwctGTMnN?usp=sharing
+
++
+
+https://cloud.mail.ru/public/JitG/YWEqCAbMT
+
+
+
+************************************
+
+видео с сайта-продажника - 
+
+https://youtu.be/Z6atGnvmAn8
+
+https://youtu.be/LhPeGnfszlw
+
+основы python для тестировщика - 24 видео - 
+https://www.youtube.com/playlist?list=PLRVGb5te8vVGuLyHYIsn6xGoxUXoYrVjk
+
+
+
+
+************************************
+
+1 - Стандарты PEP 20 - Дзен Python 
+
+PEP 8 -
+https://pythonworld.ru/osnovy/pep-8-rukovodstvo-po-napisaniyu-koda-na-python.html
+
+- 4 пробела на отступ 
+- длинна строки - максимум 79 символов (в PyCharm - вертикальная полоса справа)
+- между функциями и классами - 2 строки
+- каждый импорт на отдельной строке 
+- блок комментария - до разъясняемого кода
+- разделение слов - через _
+- и т.д.
+
+
+
+ДЗ - прочитать руководство - 
+https://pythonworld.ru/osnovy/pep-8-rukovodstvo-po-napisaniyu-koda-na-python.html
+
+
+
+************************************
+
+1 - Установка Python на Windows, Ubuntu, MacOs. Для чего нужен Pycharm и другие IDE
+
+=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
