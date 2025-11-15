@@ -7,6 +7,8 @@ https://www.youtube.com/@LearnDartFlutter/playlists
 
 
 
+
+
 ************************************
 
 1 - основы Dart - переменные 
@@ -31,11 +33,23 @@ https://docs.flutter.dev/get-started/install/windows
 
 
 
+************************************
+
+Книга - Основы Flutter
+
+
+https://bw10.skladchik.org/threads/piter-osnovy-flutter-stanislav-chernyshev-jurij-petrov-stanislav-ilin-pavel-gershevich.492375/
+
+web-версия -
+https://studylib.net/doc/27942487/osnovy-flutter
+
+https://cloud.mail.ru/public/R1TP/2JttPX8DY
+
+telegram - избранное - 15.11.2025
 
 
 
-
-
+=
 
 
 

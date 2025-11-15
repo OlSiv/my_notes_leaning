@@ -9,6 +9,9 @@ https://karpov.courses/simulator-sql
 
 karpov.courses
 >>>
+кабинет студента - 
+https://id.karpov.courses/login/?next=/login
+>>>
 Логин -
 smnhkthre@emltmp.com
 Пароль -
