@@ -1097,10 +1097,29 @@ test {
 
 в папке - название проекта - src - test - java - создадим - 
 New - JavaClass - JUnitExamples 
+--
+JUnitExamples.java
+--
+import org.junit.jupiter.api.Test;
+
+public class JUnitExamples {
+
+    @Test
+    void firstTest() {
+        System.out.println("Here is firstTest()");
+    }
+
+    @Test
+    void secondTest() {
+        System.out.println("Here is secondTest()");
+    }
+}
+----
+- когда пишешь @Test то автоматически IDE предлагает сделать импорт 
 
 
 
-00-55-15
+00-58-30
 
 
 

@@ -269,10 +269,40 @@ https://datalens.tech/docs/ru/quickstart.html
 
 2.2 Установка Docker
 
-=
+заходим на сайт - 
+https://www.docker.com/products/docker-desktop/
+
+скачиваем и устанавливаем docker 
+
+в папке своего пользователя (C:\Пользователи\Мой_пользователь) нужно создать файл - .wslconfig и прописать в нем следующее - 
+--
+memory=2GB  # Limits VM memory in WSL 2 to 2 GB 
+processors=2  # Makes the WSL 2 VM use two virtual processors 
+----
+- это ограничит ресурсы, потребляемые Docker, до 2 гигабайтов оперативной памяти и 2 ядер процессора 
+
+затем запустить Docker Desktop, нажать шестеренку вверху в синей строке сверху - нажать в столбце слева Docker Engine - в открывшемся окне прописать следующее - 
+--
+{
+  "builder": {
+    "gc": {
+      "defaultKeepStorage": "20GB",
+      "enabled": true
+    }
+  },
+  "experimental": false,
+  "registry-mirrors": [
+    "https://huecker.io"
+  ]
+}
+----
+- и внизу справа нажать "Apply & restart"
 
 
 
+Если у кого-то вдруг возникнут проблемы на Windows - проверьте, включена ли у вас виртуализация. Виртуализация - то, что позволяет существовать нескольким ОС на одной машине. Например, когда вы на машину Windows пытаетесь установить Docker (который на Linux) или Oracle VM (тоже Linux). Бывают, как оказалось, такие кейсы, когда виртуализация по умолчанию отключена. Включается в настройках BIOS, инструкция:
+How to Enable Intel Virtualization Technology: A Step-by-Step Guide (techfoe.com)
+- https://www.techfoe.com/2022/03/how-to-enable-intel-virtualization.html
 
 
 
