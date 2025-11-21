@@ -276,10 +276,15 @@ https://www.docker.com/products/docker-desktop/
 
 в папке своего пользователя (C:\Пользователи\Мой_пользователь) нужно создать файл - .wslconfig и прописать в нем следующее - 
 --
-memory=2GB  # Limits VM memory in WSL 2 to 2 GB 
-processors=2  # Makes the WSL 2 VM use two virtual processors 
+memory=2GB # Limits VM memory in WSL 2 to 2 GB
+processors=1 # Makes the WSL 2 VM use one virtual processors
 ----
 - это ограничит ресурсы, потребляемые Docker, до 2 гигабайтов оперативной памяти и 2 ядер процессора 
+
+Если вдруг после создания файла получите ошибку - необходимо добавить одну строку в самый верх файла -
+--
+[wsl2] # Settings apply across all Linux distros running on WSL 2
+----
 
 затем запустить Docker Desktop, нажать шестеренку вверху в синей строке сверху - нажать в столбце слева Docker Engine - в открывшемся окне прописать следующее - 
 --
@@ -303,6 +308,41 @@ processors=2  # Makes the WSL 2 VM use two virtual processors
 Если у кого-то вдруг возникнут проблемы на Windows - проверьте, включена ли у вас виртуализация. Виртуализация - то, что позволяет существовать нескольким ОС на одной машине. Например, когда вы на машину Windows пытаетесь установить Docker (который на Linux) или Oracle VM (тоже Linux). Бывают, как оказалось, такие кейсы, когда виртуализация по умолчанию отключена. Включается в настройках BIOS, инструкция:
 How to Enable Intel Virtualization Technology: A Step-by-Step Guide (techfoe.com)
 - https://www.techfoe.com/2022/03/how-to-enable-intel-virtualization.html
+
+
+
+Если вы собрались устанавливать докер с официального сайта в 2025 году и не знаете какую именно версию установить.
+Как узнать AMD64 или ARM64 -
+- Нажмите Win + R, введите cmd и нажмите Enter.
+- В командной строке введите -
+--
+echo %PROCESSOR_ARCHITECTURE%
+----
+
+
+
+Докер полностью готов к работе, переходим к установке DataLens, и сразу же на примере освоим интерфейс Docker Desktop
+
+
+
+Если вдруг вам необходимо перенести Docker вместе со всеми образами/контейнерами и т.д. на другой диск, то есть инструкция, как без проблем это сделать на Windows - Перенос Docker на другой диск в Windows / Хабр -
+https://habr.com/ru/articles/766498/
+
+Если возникнет ошибка "Распределение с указанным именем уже существует. Error code:Wsl/Service/RegisterDistro/ERROR_ALREADY_EXISTS" - то нужно удалить один из дистрибутивов wsl. Для этого даем команды:
+--
+wsl --list --verbose, чтобы увидеть список всех дистрибутивов.
+wsl --unregister <имя_дистрибутива>, чтобы удалить дистрибутив.
+----
+P.S. инструкция для тех, кто страдает с SSD ~ 120ГБ (ваш диск С) под винду и HDD 1ТБ (ваш диск D) для всего остального.
+
+
+
+***********************************************
+
+2.3 Установка DataLens
+
+=
+
 
 
 
