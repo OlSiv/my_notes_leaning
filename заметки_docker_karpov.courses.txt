@@ -1,4 +1,6 @@
 
+https://lab.karpov.courses/learning/102/module/1276/lesson/12125/35054/170852/
+
 https://karpov.courses/docker
 
 https://id.karpov.courses/login
@@ -13,17 +15,180 @@ a........kar!
 
 *********************************************************
 
+Учебный модуль содержит 10 уроков:
+- Знакомство с Docker
+- Первый контейнер
+- Создание образа
+- Работа с файлами
+- Переменные окружения, логи и порты
+- Введение в сети
+- Веб-приложение в контейнерах
+- YAML и docker-compose
+- Веб-приложение в docker-compose
+- За пределами контейнеров
+
+Если у вас возникнут трудности при выполнении заданий, вы всегда можете обратиться за помощью к силе нашего комьюнити и более опытным коллегам в чате в Telegram -
+https://t.me/+aBrEPjh4wic1Mjhi
+
+Рекомендуемый темп для прохождения — 2-3 урока в неделю. При таком темпе прохождения, обучение займет у вас около месяца при нагрузке 4-8 часов в неделю в зависимости от вашего исходного уровня.
 
 
 
+Самый важный навык, характеризующий хорошего специалиста — это не способность программировать, не знание статистики, не способность работать в команде и даже не domain knowledge. Это способность искать информацию, которую не знаешь или забыл. Даже опытные аналитики, инженеры и разработчики регулярно забираются в документацию или на Stack Overflow, чтобы найти ответ на вопрос вроде «как мне сконвертировать строку в Int32». Силён не тот волк, который правильно пишет код, а тот, который понял, в чём он ошибся.
+
+К сожалению, это не тот навык, которому мы можем научить. Это скилл, который приходит с опытом, по мере знакомства с терминологией и источниками информации. Не бойтесь искать ответы на свои вопросы! Чем раньше вы научитесь искать то, что вам нужно — тем проще вам будет в реальной работе и тем дальше вы пойдёте как специалист. 
+
+в этом курсе с Docker будем работать из Linux 
+
+сущности Docker - 
+- демон (docker daemon)
+- образ (docker image)
+- репозиторий / реестр (docker registry)
+- контейнер (docker container)
+
+на основе образа мы строим контейнер 
 
 
 
+Инструкция по установке докера на Linux
+
+Ссылки:
+
+Документация (установка докера) -
+https://docs.docker.com/engine/install/ubuntu/
+
+Документация (запуск докера не из-под суперпользователя) -
+https://docs.docker.com/engine/install/linux-postinstall/
+
+Статья с DO по установке докера на Ubuntu 20.04 -
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-ru
+
+Документация (установка docker-compose) -
+https://docs.docker.com/compose/install/
+
+Статья с DO по установке docker-compose на Ubuntu 20.04 -
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04
 
 
 
+В этом примере мы рассмотрим установку докера на самый распространенный дистрибутив линукса — Ubuntu. Инструкцию по установке на другие системы (Debian, CentOS, Fedora etc.) вы сможете найти в документации. 
+
+1) Добавляем репозиторий докера (чтобы получить последнюю его версию) -
+--
+sudo apt-get update
+----
 
 
+--
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release -y
+----
+
+
+--
+sudo mkdir -p /etc/apt/keyrings
+----
+
+
+--
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+----
+
+
+--
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+----
+
+
+
+2) Устанавливаем docker 
+--
+sudo apt-get update
+----
+
+
+--
+sudo apt-get install docker-ce docker-ce-cli containerd.io -y
+----
+
+
+
+3) Устанавливаем docker-compose
+--
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.6.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+----
+
+
+--
+sudo chmod +x /usr/local/bin/docker-compose
+----
+
+
+4) Проверяем, что всё установилось
+
+У вас должны работать следующие команды:
+--
+sudo docker -v
+
+sudo docker ps
+
+sudo docker images
+----
+
+и для docker-compose 
+--
+docker-compose -v
+----
+
+
+
+5) Запуск докера не из-под суперпользователя
+Это опциональный шаг, но в курсе докер будет запускаться именно так (т.е. без "sudo") -
+--
+sudo groupadd docker
+----
+- Может выдать groupadd: group 'docker' already exists. Это нормально
+
+
+--
+sudo usermod -aG docker $USER
+----
+
+Затем выходим из терминала и заходим обратно. После этого нужно проверить, что всё сработало:
+--
+id -nG
+
+docker ps
+
+docker images
+----
+
+
+
+Инструкция по установке докера на Mac (с картинками) -
+https://lab.karpov.courses/learning/102/module/1276/lesson/12125/35054/170855/
++
+telegram - избранное - 05.12.2025 (07:21)
+
+
+
+Инструкция по установке докера на Windows (с картинками) -
+https://lab.karpov.courses/learning/102/module/1276/lesson/12125/35054/170856/
++
+telegram - избранное - 05.12.2025 (07:23)
+
+
+
+*********************************************************
+
+Итак, сегодня мы наконец поднимем контейнеры!
+
+В этом уроке мы узнаем различные команды для работы с образами и контейнерами. Заглянем на Docker Hub. Поднимем контейнер в фоновом режиме, удалим при остановке и даже сможем зайти в него
 
 
 
