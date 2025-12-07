@@ -1,13 +1,18 @@
 
 DE - karpov.courses 
 
+Инженер данных с нуля 2025 [karpov.courses
+
 https://bw10.skladchik.org/threads/inzhener-dannyx-s-nulja-2025-karpov-courses-evgenij-ermakov-dina-safina-aleksandr-savchenko-aleksandr-volynskij.488843/
 
+доставка - 
 https://bw10.skladchik.org/conversations/yZdyDXMbBgzPuWnoQkKr3TE9bC1qNQxMvLz19ez93av9S9AjRXe2abBJSfbwe7SszKcYaBkc.1753622/
 
 https://cloud.mail.ru/public/Cskj/J7cqB96Rm
 
-жд4тб
+жд4тб - в корневой директории (папке)
+
+еще курс от karpov по DE - жд4тб - _CODING - АНАЛИТИКА ДАННЫХ - 9_Инженер данных - karpov.courses 2023 
 
 
 
@@ -63,4 +68,49 @@ LLM вряд ли заменят джунов
 
 03 - 01 -
 
+с данными необходимо выстраивать процессы 
+
+DE - на стыке между бизнесом и разработкой 
+
+DE - 
+- создает инструменты и процессы, помогающие аналитикам и инженерам машинного обучения быстрее приносить результат 
+
+ключевые навыки DE - 
+- разработка 
+- бизнес-процессы
+
+Big Data Engineer (инструменты) -
+- Hadoop
+- Apache Spark
+- Apache Hive
+- Kafka 
+- ClickHouse
+- Apache HBase
+
+нужно иметь базовые навыки, которые позволят изучить любые инструменты 
+
+три столпа инженера данных - 
+- Python 
+- SQL 
+- архитектура (какие инструменты есть на рынке, для чего они используются, как их комбинировать между собой)
+
+
+
+*******************************
+
+04 - 00 - 01 -
+
 =
+
+
+
+
+
+
+
+
+
+
+
+
+
