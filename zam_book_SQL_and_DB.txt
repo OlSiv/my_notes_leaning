@@ -1,0 +1,53 @@
+
+Базы данных на SQL, MySQL, MS SQL и Postgre/PL/pgSQL. Проектирование и практическая реализация [Рамиль Аклимов]
+
+https://bw10.skladchik.org/threads/bazy-dannyx-na-sql-mysql-ms-sql-i-postgre-pl-pgsql-proektirovanie-i-prakticheskaja-realizacija-ramil-aklimov.492646/
+
+https://cloud.mail.ru/public/QJbH/xxiwWCPnD?autologin=no
+
+telegram - избранное - 08.12.2025 (10:41)
+
+
+
+***********************************************
+
+Установка MS SQL Server - вбить в поиск - "MS SQL Express download"
+
+MS SQL Server не стоит устанавливать на другие ОС, кроме Windows 
+
+также бесплатныя версия MS SQL Server имеет ряд ограничений 
+
+
+
+Установка MySQL - сайт mysql.com 
+
+вбить в поиск - "MySQL community edition"
+
+33
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
