@@ -31,9 +31,10 @@ exit
 ЗАДАЧИ -
 
 - django run - >
-- книга по SQL - Базы данных на SQL, MySQL, MS SQL и Postgre/PL/pgSQL. Проектирование и практическая реализация - ?
-- DE karpov.courses - ?
-- ...
+- книга по SQL - Базы данных на SQL, MySQL, MS SQL и Postgre/PL/pgSQL. Проектирование и практическая реализация - >
+- DE karpov.courses - >
+- алгоритмы - Глеб Михайлов - жд4тб 
+- DevOps - от основ до прода
 
 
 
