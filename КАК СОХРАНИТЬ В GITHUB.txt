@@ -31,6 +31,7 @@ exit
 ЗАДАЧИ -
 
 - django run - >
+- AQA - Nikita - API + UI + нагрузочное
 - книга по SQL - Базы данных на SQL, MySQL, MS SQL и Postgre/PL/pgSQL. Проектирование и практическая реализация - >
 - DE karpov.courses - >
 - алгоритмы - Глеб Михайлов - жд4тб 
