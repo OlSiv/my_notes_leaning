@@ -6,16 +6,14 @@ https://okulik.by/video/
 https://www.youtube.com/@SeniorTester/videos
 
 
-
 >>>>>>>>>
 
 материалы - на жд4тб и тут - 
 https://drive.google.com/drive/folders/1u4fmekLsBK9Q3gRk7vIGRB1dwctGTMnN?usp=sharing
-
 +
-
 https://cloud.mail.ru/public/JitG/YWEqCAbMT
-
++
+telegram - избранное - 25.01.2026 (19:38)
 
 
 ************************************
@@ -28,7 +26,6 @@ https://youtu.be/LhPeGnfszlw
 
 основы python для тестировщика - 24 видео - 
 https://www.youtube.com/playlist?list=PLRVGb5te8vVGuLyHYIsn6xGoxUXoYrVjk
-
 
 
 
@@ -48,22 +45,73 @@ https://pythonworld.ru/osnovy/pep-8-rukovodstvo-po-napisaniyu-koda-na-python.htm
 - и т.д.
 
 
-
 ДЗ - прочитать руководство - 
 https://pythonworld.ru/osnovy/pep-8-rukovodstvo-po-napisaniyu-koda-na-python.html
-
 
 
 ************************************
 
 1 - Установка Python на Windows, Ubuntu, MacOs. Для чего нужен Pycharm и другие IDE
 
+автор сделал 2 виртуальные машины - на Windows и на Ubuntu 
+
+проверить есть ли python в Windows (CTR+R - cmd) - 
+--
+python --version 
+----
+
+проверить есть ли python в Ubuntu (в верхнем правом углу "Activites" - ввести "Terminal") - 
+--
+python --version 
+----
+или 
+--
+python3 --version 
+----
+
+скачать установщик последней или предпоследней стабильной версии с python.org 
+
+поставить галочки в двух квадратах при установке 
+
+затем лучше перезагрузить терминал 
+
+проверить версию pip - 
+--
+pip --version 
+----
+
+если pip нет, то скачать и установить в Windows pip для установки модулей, в google ввести запрос - "как скачать pip через cmd"
+
+скачать и установить pip в Ubuntu - 
+--
+sudo apt install python3-pip
+----
+
+если древняя MacOS, то установить python с сайта python.org (в видео - с 14:00)
+
+среда разработки для программирования (IDE) - это как текстовый редактор 
+
+первая программа - 
+--
+hello.py
+--
+print("Hello!")
+----
+
+установить PyCharm IDE 
+
+создать проект 
+
+настроить виртуальное окружение внутри PyCharm, но лучше не стандартное, а своё 
+
+если используешь VSCode то установить расширение - Python от Microsoft 
+
+
+************************************
+
+2 - Git
+
 =
-
-
-
-
-
 
 
 
