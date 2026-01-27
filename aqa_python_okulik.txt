@@ -8,7 +8,7 @@ https://www.youtube.com/@SeniorTester/videos
 
 >>>>>>>>>
 
-материалы - на жд4тб и тут - 
+материалы - на жд4тб (CODING - QA) и тут - 
 https://drive.google.com/drive/folders/1u4fmekLsBK9Q3gRk7vIGRB1dwctGTMnN?usp=sharing
 +
 https://cloud.mail.ru/public/JitG/YWEqCAbMT
@@ -111,7 +111,266 @@ print("Hello!")
 
 2 - Git
 
-=
+установка Git - 
+
+- Windows -
+https://git-scm.com/download/win 
+
+- Ubuntu -
+--
+apt-get install git
+----
+
+- MacOS -
+https://git-scm.com/download/mac
+
+проверить установлен ли git - 
+--
+git --version
+----
+
+настройка - 
+--
+git config --global user.name "Ivan Ivanov"
+git config --global user.email "ivan_ivanov@mail.com"
+----
+
+проверить как установились значения - 
+--
+git config --list --show-origin
+----
+
+git не сможет отслеживать пустую папку, где нет файлов 
+
+чтобы работать с репозиторием, нужно перейти в ту папку, где находится этот репозиторий 
+
+создание репозитория - 
+--
+git init 
+git add <file_name>
+git add . (добавить все файлы)
+git commit -m "message"
+git commit -am "message" (объеденит add и commit)
+----
+
+git status 
+
+git log 
+
+git log --oneline 
+
+выйти из редактора в Windows - 
+- ESC потом :wq (с сохранением)
+- ESC потом :q (без сохранения)
+
+вернуться к старому коммиту - 
+--
+git checkout <commit Id>
+----
+
+вернуться в main (master) из старого коммита -
+--
+git switch -
+----
+
+отменить изменения в файле до индексации (до git add .) - 
+--
+git checkout <file name>
+----
+
+отмена индексации (если уже сделали git add .) -
+--
+git reset HEAD <file_name>
+----
+
+отмена последнего коммита -
+--
+git revert HEAD 
+----
+
+изменение наименования последнего коммита - 
+--
+git commit --amend -am "message"
+----
+
+создание новой ветки и переход на неё -
+--
+git checkout -b <new branch name>
+----
+- перед созданием новой ветки обязательно нужно посмотреть, на какой ветке ты сейчас находишся (git status или git branch)
+
+переключение между ветками - 
+--
+git checkout <branch name>
+----
+
+книга о Git - 
+https://git-scm.com/book/ru/v2
+
+шпаргалка по командам Git - 
+https://training.github.com/downloads/ru/github-git-cheat-sheet
+
+************************************
+
+2 - Github 
+
+теперь будем создавать репозиторий на github и забирать его на свой компьютер 
+
+github.com 
+
+копировать на комп и потом отправлять на GitHub - по SSH 
+
+клонирование репозитория -
+--
+git clone <url>
+----
+
+создать файл без расширения - config в папке С\Users\user\.ssh и добавить туда как в видео (17:00)
+
+github.com/eugene-okulik/QAP-13onl/wiki
+==
+- Переходим в ветку main
+- Получаем последнюю версию ветки (git pull)
+- Создаем бранч
+- Для первого задания нужно будет создать свою папку внутри папки homework
+- Создаем папку для задания в своей директории (например Homework_3)
+- Добавляем в созданную папку файл(ы) с результатом выполненного задания
+- Коммитим с толковым описанием
+- Пушим свой бранч в репозиторий
+- Создаем Pull request на мерж своего бранча в main
+
+Каждый коммит должен отвечать на вопрос "что было сделано?" - "added <что было добавлено>" или "updated <что было изменено>" или "fixed <что было исправлено/починено>" 
+
+пример:
+"added text variables", "added funtions for reading text from file" или "updated input text"
+Если на английском сложно, то в коммитах можно на русском, например “исправлены пробелы в операциях присвоения”, “изменены названия функций”, или даже подлиннее: “изменен порядок выполнения функций и добавлены проверки корректности данных”
+
+ветки создавать всегда из последней версии ветки main, перед этим перейти на ветку main (git checkout main), сделать git pull, потом создать новую ветку и перейти на неё (git checkout -b name_branch)
+
+на github в строке сверху найти пункт Pull requests, при смерживании веток github сам предложит сделать Pull request
+
+внесение изменений и отправка на github - 
+--
+git pull 
+git checkout -b new_branch_name 
+потом сделать изменение в коде 
+git add .
+git commit -m "commit_message"
+git push origin main
+----
+
+копировать на комп и потом отправлять на GitHub - по SSH 
+
+ДЗ - 
+1 - создать свой репозиторий на git hub 
+2 - склонировать себе этот репозиторий 
+3 - создать бранч (ветку) в репозитории 
+4 - создать внутри этого репозитория файл 
+5 - сделать коммит с осмысленным комментарием 
+6 - внести изменения в файл 
+7 - сделать еще один коммит 
+8 - отправить все сделанные изменения на github 
+9 - создать пул-реквест 
+10 - подтвердить пул-реквест 
+11 - сделать мерж изменений 
+
+************************************
+
+2 - Для чего нужен Git_ Может, без него проще
+
+открыть папку из графического интерфейса в терминале - 
+- Linux - ПКМ > Open in Terminal
+- Windows - ПКМ + SHIFT > Открыть окно PowerShell здесь 
+
+переименовать ветку master в ветку main - 
+--
+git branch -m master main 
+----
+
+git init 
+
+git status 
+
+git log 
+
+git add .
+
+git commit -m "message"
+
+git checkout main 
+
+находясь на ветке main влить в неё ветку my_branch
+--
+git merge my_branch
+----
+
+git и github - это разные вещи 
+
+************************************
+
+2 - Настройка SSH подключения к Github_ Сравнение с HTTPS подключением_ Windows, Linux, Mac
+
+git clone https://github.com/...................git
+
+настроим клонирование репозитория с hithub с помощью SSH 
+
+кнопка "<> Code" - скопируем ссылку SSH - 
+git@github.com:OlSiv/code_my_projects.git
+
+git clone git@github.com:OlSiv/code_my_projects.git
+
+инструкция как настроить SSH - 
+- аватар пользователя в верхнем правом углу 
+- Setting 
+- в столбце слева "SSH and GPG keys"
+- SSH keys (Check out our guide to connecting to GitHub using SSH keys or troubleshoot common SSH problems) - https://docs.github.com/authentication/connecting-to-github-with-ssh
+
+Как сгенерировать новый ключ - 
+https://docs.github.com/ru/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+- Откройте Git Bash
+- Вставьте текст ниже, заменив адрес электронной почты, использованный в примере, на свой адрес электронной почты GitHub -
+--
+ssh-keygen -t ed25519 -C "your_email@example.com"
+----
+- ..........
+
+в видео с 17:00 показывает как создать ключ SSH и добавить в github 
+
+приватный и публичный ключи лежат - 
+- Windows - C\Users\user\.ssh
+- Linux - /home/my_user/.ssh
+
+на Linux перейти в папку пользователя - 
+--
+cd ~/.ssh
+----
+
+************************************
+
+3 - lesson_python_basics_1
+
+работать будем в VSCode - там есть бесплатный jupyter notebook
+
+каждый раз перед работой делаем - 
+git checkout main 
+git pull 
+git checkout - b python_lesson_1
+тут делаем работу 
+...
+
+00-11-00
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
