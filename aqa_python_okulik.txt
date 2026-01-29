@@ -1,4 +1,5 @@
 
+
 https://bw10.skladchik.org/threads/avtomatizacija-testirovanija-na-python-tarif-bez-domashnix-zadanij-evgenij-okulik.457190/
 
 https://okulik.by/video/
@@ -6,14 +7,15 @@ https://okulik.by/video/
 https://www.youtube.com/@SeniorTester/videos
 
 
->>>>>>>>>
 
-материалы - на жд4тб (CODING - QA) и тут - 
-https://drive.google.com/drive/folders/1u4fmekLsBK9Q3gRk7vIGRB1dwctGTMnN?usp=sharing
+************************************
+
+материалы - на жд4тб (CODING - QA)
 +
 https://cloud.mail.ru/public/JitG/YWEqCAbMT
 +
 telegram - избранное - 25.01.2026 (19:38)
+
 
 
 ************************************
@@ -47,7 +49,6 @@ https://pythonworld.ru/osnovy/pep-8-rukovodstvo-po-napisaniyu-koda-na-python.htm
 
 ДЗ - прочитать руководство - 
 https://pythonworld.ru/osnovy/pep-8-rukovodstvo-po-napisaniyu-koda-na-python.html
-
 
 ************************************
 
@@ -105,7 +106,6 @@ print("Hello!")
 настроить виртуальное окружение внутри PyCharm, но лучше не стандартное, а своё 
 
 если используешь VSCode то установить расширение - Python от Microsoft 
-
 
 ************************************
 
@@ -571,9 +571,590 @@ age: int = 42
 
 4 - lesson_python_basics_2
 
-=
+Операторы присваивания - 
 
-00-01-00
+Используются для того, чтобы присвоить какое либо значение переменной.
+
+--
+a = 1
+
+a += 1
+# a = a + 1
+
+print(a)
+----
+2
+------
+
+--
+print('text' + 'text')
+text = 'text'
+# text = text + ' new'
+text += ' new'
+print(text)
+symbol = '='
+# symbol = symbol * 20
+symbol *= 30
+print(symbol)
+print('Copyrights')
+print(symbol)
+----
+texttext
+text new
+==============================
+Copyrights
+==============================
+------
+
+
+
+Операторы принадлежности -
+
+Используются в условных выражениях (выражения, в которых содержится условие) для проверки вхождения (или не вхождения) одного объекта в состав другого. Результат работы - True или False  
+Например, можно проверить есть ли какое-то слово в строке:
+--
+text = 'I love Python!'
+print('love' in text)
+print('Love' in text)
+----
+True
+False
+------
+
+
+
+Операторы идентичности -
+
+Используется для проверки является ли объект идентичным тому, что от него требуется (не просто равным по значению, а именно полностью идентичным).  
+
+Происходит проверка являются ли сравниваемые значения представителями одного и того же участка памяти в системе. Для чисел от 0 до 256 участки в памяти зарезервированы, поэтому при помещении в переменную такого числа (от 0 до 256) в переменную помещается не само число, а ссылка на него и память для этого числа не выделяется. Эти числа всегда хранятся в системе по одному и тому же адрему. Но если внести в переменную число больше 256, то под это число выделяется память и в переменную сохраняется ссылка на эту новую ячейку памяти. Если создать еще одну переменную с таким же значением, под нее снова будет выделена память и в переменную будет сохранена ссылка на новую ячейку памяти.  
+
+Таким образом, операторы идентичности проверяют, что сравниваемые объекты представляют собой одну и ту же ячейку памяти.
+
+--
+b = 2
+print(id(b))
+
+c = 2
+print(id(c))
+
+d = 257
+print(id(d))
+
+e = 257
+print(id(e))
+
+print(b is c)
+print(d is not e)
+----
+139905517617424
+139905517617424
+139905450350128
+139905450348784
+True
+True
+------
+
+
+
+Способы ввода данных -
+Клавиатура  
+Чтение из файла  
+База данных  
+API  
+
+Но сначала разберемся с одним из них -
+--
+input('What is your name?')
+a = 1
+----
+
+--
+user_name = input('What is your name?')
+print('Hello', user_name, '!')
+----
+Hello sdfsdfsdfsdf !
+------
+
+
+
+Касательно функции input, важно знать, что все, что ввел пользователь будет сохранено в переменную как текст, независимо от того что пользователь ввел. Поэтому, если мы ждем от пользователя число и хотим работать с этим как с числом, то нужно будет преобразовать тот текст, который ввел пользователь в число.
+--
+user_input = int(input('Enter a number'))
+print(type(user_input))
+
+print(2 + user_input)
+----
+-------------------------------------------------------------------
+ValueError            Traceback (most recent call last)
+/tmp/ipykernel_290489/1698465796.py in <module>
+----> 1 user_input = int(input('Enter a number'))
+      2 print(type(user_input))
+      3 
+      4 print(2 + user_input)
+
+ValueError: invalid literal for int() with base 10: 'sdf'
+------
+
+
+
+Преобразование типов данных -
+--
+a = '1'
+print(type(a))
+
+a = int(a)
+print(type(a))
+
+a = str(a)
+print(type(a))
+
+b = 'True'
+print(type(b))
+
+b = bool(b)
+print(type(b))
+
+a = float(a)
+print(type(a))
+
+print(a)
+----
+<class 'str'>
+<class 'int'>
+<class 'str'>
+<class 'str'>
+<class 'bool'>
+<class 'float'>
+1.0
+------
+
+
+
+Типы данных в Python -
+
+Number (целое число)  
+String (строка)  
+Boolean (логический тип данных)  
+Float(числа с плавающей точкой)  
+List (список)  
+Dictionary (словарь)  
+Tuple (кортеж)  
+Set (множество)  
+
+
+
+List(списки) -
+
+Python список - структура данных для хранения последовательностей.   
+Экземпляры значений, находящихся в списке, называются элементами списка.
+--
+my_list = [1, 3, 6, 7, None, 'text', False, 2.42, 'sdsdf', 'last', 'last2']
+print(my_list)
+print(my_list[2])
+print(my_list[0])
+print(my_list[9])
+print(my_list[-1])
+print(my_list[-3])
+
+my_list[2] = 42
+print(my_list)
+----
+[1, 3, 6, 7, None, 'text', False, 2.42, 'sdsdf', 'last', 'last2']
+6
+1
+last
+last2
+sdsdf
+[1, 3, 42, 7, None, 'text', False, 2.42, 'sdsdf', 'last', 'last2']
+------
+
+--
+my_list = []
+my_list = list()
+my_list.append(42)
+my_list.append('text')
+print(my_list)
+print(len(my_list))
+print(my_list.index('text'))
+poped = my_list.pop(0)
+print(my_list)
+print(poped)
+
+print(42 in my_list)
+----
+[42, 'text']
+2
+1
+['text']
+42
+False
+------
+
+
+
+Tuple(кортежи) -
+
+Хранят данные различных типов  
+Неизменяемы  
+Занимают меньший размер  
+Оптимизируются интепретатором   
+По поведению похожи на списки. Главное отличие - нет функций, позволяющих что-то добавить в кортеж или изменить внутри него
+--
+my_tuple = (1, 3, 6, 7, None, 'text', False, 2.42)
+print(my_tuple[2])
+print(my_tuple[-1])
+# my_tuple[4] = 42
+----
+6
+2.42
+------
+
+--
+my_tuple = ()
+my_tuple = tuple()
+my_tuple = (1, 5, 2, 6, 1)
+print(my_tuple)
+print(my_tuple.count(1))
+print(my_tuple.index(5))
+----
+(1, 5, 2, 6, 1)
+2
+1
+------
+
+--
+llist = [56]
+print(llist)
+ttuple = (56,)
+print(ttuple)
+print(type(ttuple))
+----
+[56]
+(56,)
+<class 'tuple'>
+------
+
+
+
+Set(множества) -
+
+Содержит в себе только неповторяющиеся элементы  
+Не гарантирует порядок элементов  
+Работа с ним тоже похожа на работу со списком  
+--
+my_set = {1, 3, 6, 7, None, 'text', False, 2.42, 3, 7}
+# print(my_set[2])
+my_set.add(42)
+my_set.add('text')
+print(my_set)
+----
+{False, 1, 2.42, 3, 6, 7, 42, 'text', None}
+------
+
+--
+list1 = list(set([1, 2, 5, 6, 2, 1, 8]))
+# list1 = set(list1)
+# list1 = list(list1)
+
+print(list1)
+----
+[1, 2, 5, 6, 8]
+------
+
+--
+my_set = {} # Это словарь
+print(type(my_set))
+my_set = set() #  Пустой set можно создать только так
+print(type(my_set))
+----
+<class 'dict'>
+<class 'set'>
+------
+
+
+
+Dictionary(словари) -
+
+Словари в Python - коллекции произвольных объектов с доступом по ключу. Их иногда ещё называют ассоциативными массивами или хеш-таблицами.  
+  
+данные в словаре - это пары ключ: значение  
+доступ к значениям осуществляется по ключу, а не по номеру, как в списках  
+данные в словаре упорядочены по порядку добавления элементов  
+так как словари изменяемы, то элементы словаря можно менять, добавлять, удалять  
+ключ должен быть объектом неизменяемого типа: число, строка, кортеж  
+значение может быть данными любого типа  
+
+--
+my_dict = {'one': 'value', 'two': 'value2'}
+print(my_dict['one'])
+print(len(my_dict))
+my_dict['one'] = 'myvalue'
+my_dict['three'] = 'value3'
+my_dict['four'] = False
+my_dict['five'] = [1, 5, 8]
+my_dict['six'] = {1, 6, 9}
+my_dict[2] = 'skldjflskdf'
+my_dict[False] = 'skdjhskdjf'
+my_dict[2.42] = 'werwerw'
+my_dict[(1, 2)] = 'ieruyieurtert'
+my_dict[5] = {1: 2}
+
+
+
+print(my_dict)
+print(type(my_dict))
+
+print(my_dict.keys())
+print(my_dict.values())
+print(my_dict.items())
+----
+value
+2
+{'one': 'myvalue', 'two': 'value2', 'three': 'value3', 'four': False, 'five': [1, 5, 8], 'six': {1, 6, 9}, 2: 'skldjflskdf', False: 'skdjhskdjf', 2.42: 'werwerw', (1, 2): 'ieruyieurtert', 5: {1: 2}}
+<class 'dict'>
+dict_keys(['one', 'two', 'three', 'four', 'five', 'six', 2, False, 2.42, (1, 2), 5])
+dict_values(['myvalue', 'value2', 'value3', False, [1, 5, 8], {1, 6, 9}, 'skldjflskdf', 'skdjhskdjf', 'werwerw', 'ieruyieurtert', {1: 2}])
+dict_items([('one', 'myvalue'), ('two', 'value2'), ('three', 'value3'), ('four', False), ('five', [1, 5, 8]), ('six', {1, 6, 9}), (2, 'skldjflskdf'), (False, 'skdjhskdjf'), (2.42, 'werwerw'), ((1, 2), 'ieruyieurtert'), (5, {1: 2})])
+------
+
+--
+a = 1, 2, 3
+
+print(a)
+print(type(a))
+----
+- тут формирует кортеж 
+
+************************************
+
+5 - lesson_python_basics_3
+
+Распаковка -
+
+Используется для того, чтобы распределить элементы коллекции (список, словарь, множество, кортеж) по отдельным переменным.  
+Используется только в ситуациях, когда вы наверняка знаете количество элементов, содержащихся в коллекции.
+--
+my_list = [1, 3]
+my_tuple = (2, 6, 9)
+# a = my_list[0]
+# b = my_list[1]
+# c = my_tuple[0]
+# d = my_tuple[1]
+# e = my_tuple[2]
+a, b = my_list
+c, d, e = my_tuple
+print(a, b, c, d, e)
+----
+1 3 2 6 9
+------
+
+
+
+Срез -
+  
+Извлечение среза позволяет взять из списка определенную его часть
+--
+lll = [1, 3, 5, 2, 5, 7 ,1, 3]
+print(lll)
+print(lll[1:4])
+print(lll[:4])
+print(lll[3:])
+print(lll[1::2])
+print(lll[:])
+print(lll[::-1])
+print(lll[::-2])
+print(lll[-2:-6:-1])
+----
+[1, 3, 5, 2, 5, 7, 1, 3]
+[3, 5, 2]
+[1, 3, 5, 2]
+[2, 5, 7, 1, 3]
+[3, 2, 7, 3]
+[1, 3, 5, 2, 5, 7, 1, 3]
+[3, 1, 7, 5, 2, 5, 3, 1]
+[3, 7, 2, 3]
+[1, 7, 5, 2]
+------
+
+
+
+Методы строк -
+
+Со строкой можно делать многое из того, что можно делать с другими коллекциями, т.к. строка это по сути тоже коллекция - последовательность символов. Больше всего функциональность строки похожа на функциональность кортежей.
+--
+text = 'my long long string'
+print(text[3])
+print(len(text))
+print(text.index('long'))
+print('long' in text)
+print(text.count('n'))
+print(text.count('long'))
+print(text.find('lone'))
+print(text[:7])
+print(text.startswith('my'))
+print(text.endswith('string'))
+----
+l
+19
+3
+True
+3
+2
+-1
+my long
+True
+True
+------
+
+--
+txt = "ThIs tExt wiTh meSsEd uP CaPITalIZatiOn!"
+print(txt.capitalize()) # Делает первую букву предложения заглавной
+print(txt.title())  # Делает каждую первую букву заглавной
+print(txt.upper())  # Делает все буквы большими
+print(txt.lower())  # Делает все буквы маленькими
+----
+This text with messed up capitalization!
+This Text With Messed Up Capitalization!
+THIS TEXT WITH MESSED UP CAPITALIZATION!
+this text with messed up capitalization!
+------
+
+--
+text = 'mY lOng loNg STRING'
+string_index = text.lower().index('string')
+print(text[:string_index].lower() + text[string_index:].upper())
+----
+my long long STRING
+------
+
+--
+msg = 'Hello world!'
+msg = msg.replace('world', 'universe')
+print(msg)
+----
+Hello universe!
+------
+
+--
+data = '12,3'
+data = data.replace(',', '.')
+print(data)
+----
+12.3
+------
+
+--
+txt = ' admin '
+# txt = txt.replace(' ', '')
+# txt = txt.strip()
+# txt = txt.lstrip()
+txt = txt.rstrip()
+print(txt)
+text = '"name"'
+text = text.strip('"')
+print(text)
+----
+ admin
+name
+------
+
+
+
+Строка ←→ список -
+
+--
+my_string = 'some little text'
+my_string2 = 'some,little,text'
+list_from_text = my_string.split()
+list_from_text2 = my_string2.split(',')
+print(list_from_text)
+print(list_from_text2)
+----
+['some', 'little', 'text']
+['some', 'little', 'text']
+------
+
+--
+languages = ['Python', 'Java', 'Ruby']
+print(languages)
+# languages = ', '.join(languages)
+print(languages)
+print('Student knows these languages:', ', '.join(languages))
+----
+['Python', 'Java', 'Ruby']
+['Python', 'Java', 'Ruby']
+Student knows these languages: Python, Java, Ruby
+------
+
+
+
+Форматирование строки -
+
+--
+a = 'one'
+b = 'two'
+print('First word is', a, ', second word is', b)
+
+
+my_text = 'First word is ' + a + ', second word is ' + b
+print(my_text)
+
+my_text = 'First word is %s, second word is %s'
+print(my_text % (a, b))
+
+#string format
+my_text = 'First word is {}, second word is {}'
+print(my_text.format(a, b))
+
+my_text = 'First word is {1}, second word is {0}'
+print(my_text.format(a, b))
+
+#f-string
+my_text = f'First word is {{a}}, second word is {b}'
+print(my_text)
+----
+First word is one , second word is two
+First word is one, second word is two
+First word is one, second word is two
+First word is one, second word is two
+First word is two, second word is one
+First word is {a}, second word is two
+------
+
+--
+template = 'Hello, {0}!'
+# print(f'Hello, {username}!')
+username = input('What is your name?')
+
+print(template.format(username))
+----
+Hello, Tom!
+Hello, Tim!
+------
+
+--
+a = 'qwe'
+b = 'asd'
+
+my_text = 'First word is {{}}, second word is {}'
+print_text = my_text.format(b)
+print(print_text)
+
+print(print_text.format('qqqqq'))
+----
+First word is {}, second word is asd
+First word is qqqqq, second word is asd
+------
+
+
+
+...
+
+
+
+
+
 
 
 
