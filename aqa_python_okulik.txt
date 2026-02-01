@@ -1470,7 +1470,6 @@ Functions -
 Это самые основные программные структуры в языке Python, позволяющие многократное использование программного кода и уменьшающие его избыточность. Так же позволяют разбить сложную систему на достаточно простые и легко управляемые части. Они могут принимать аргументы и возвращать результаты выполнения.
 
 
-
 DRY - don't repeat yourself
 
 --
@@ -1555,7 +1554,6 @@ print(calc(a))
 # print(result_b)
 # calc(c)
 # calc(d)
-_ = 1
 ----
 48
 None
@@ -1657,7 +1655,167 @@ Product monitor price is 1000
 ------
 
 
-.........33-00
+
+************************************
+
+7 - generators_and_modules
+
+
+
+Generator function -
+--
+def generate_text(text1, text2):
+    return f'Text consists on the wrods:{text1} and {text2}'
+    a = 1
+print(generate_text('Ivan', 'Ivanov'))
+----
+Text consists on the wrods:Ivan and Ivanov
+------
+
+--
+my_list = [1, 2, 5, 7, 4, 9]
+
+for x in my_list:
+    print(x)
+----
+
+--
+n = 2
+
+progression = []
+num = 1
+while len(progression) < 1_000_000_000:
+    progression.append(num)
+    num += n
+----
+
+--
+def progression(limit=100):
+    n = 2
+    num = 1
+    count = 1
+    while count < limit:
+        yield num
+        num += n
+        count += 1
+
+# for number in progression(10):
+#     print(number)
+# print(list(progression(10)))
+
+count = 1
+for number in progression(10000000000000000000000000000000000000000):
+    if count == 1000000:
+        print(number)
+        break
+    count += 1
+----
+1999999
+------
+
+
+
+ключевое слово - yield -
+--
+def get_numbers_yield(n):
+    for i in range(n):
+        yield i  # Отдаем по одному числу за раз
+
+    
+gen = get_numbers_yield(3)
+
+print(next(gen)) # Выведет 0
+print(next(gen)) # Выведет 1 (функция "проснулась" там же, где остановилась
+----
+0
+1
+------
+
+
+
+раньше в каждую папку проекта на python добавлялся файл __init__.py, в котором ничего не было, он просто инициировал папку как директорию python, но сейчас это уже делать не нужно 
+
+
+
+импорты (модули) -
+--
+import random 
+from random import randint
+----
+random.randrange(0, 10, 2)  # тут 10 НЕ используется в ряде генерации
+randint(1, 100)  # при этом тут 100 тоже используется в ряде генерации
+------
+
+то есть в завистимости от названия функции -
+- random.randint(1, 10) - последнее число входит в последовательность 
+- random.randrange(1, 10) - последнее число НЕ входит в последовательность 
+
+- random.randint(1, 10) - это единственное исключение в python, когда последнее число входит в последовательность
+
+--
+import random 
+
+users = ["user_1", "user_2", "user_3"]
+print(random.choice(users))
+----
+
+--
+import os 
+import sys
+
+print(sys.platform)
+----
+Win32 
+------
+
+в python библиотеки называются модулями 
+
+--
+import selenium 
+----
+
+перед тем, как импортировать модуль, его нужно установить - 
+pip install selenium 
+
+для каждого модуля отдельно гуглить, как его установить, или посмотреть на сайте - 
+pypi.org 
+
+виртуальное окружение - все модули устанавливать только внутри своего проекта 
+
+создать свой собственный модуль - допустим создадим файл helper.py в котором напишем функцию и переменную - 
+--
+helper.py
+--
+def assist():
+    print("I am an assistant")
+
+variable = "I am a variable"
+----
+и импортируем этот модуль в другой файл проекта -
+--
+import helper 
+
+helper.assist()
+print(helper.variable)
+----
+
+если нужно импортировать файл из другой папки, то нужно прописать полный путь от корня проекта, например - 
+--
+from homework.okulik.utils import helper 
+
+.....
+----
+
+если нужна только одна функция из модуля, то импортировать так - 
+--
+from homework.okulik.utils.helper import assist 
+
+.....
+----
+
+
+
+01-19-20
 
 
 
@@ -1668,6 +1826,52 @@ Product monitor price is 1000
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+это код автора - 
+--
+# import random
+from random import random, randint, randrange, choice
+# from random import *
+from homework.eugene_okulik.utils.helper import assist as assist1
+from homework.eugene_okulik.utils.help2 import assist as assist2
+from homework.eugene_okulik.utils.help2 import very_useful_function_for_your_easy_life as useful
+
+# print()
+# input()
+# int()
+
+# print(random.random())
+# print(f'Your price is {int(random.random() * 100)}')
+# print(random.randint(0, 1))
+# print(random.randrange(0, 10, 2))
+# users = ['user11', 'user12', 'user100']
+# print(random.choice(users))
+
+print(random())
+print(f'Your price is {int(random() * 100)}')
+print(randint(0, 1))
+print(randrange(0, 10, 2))
+users = ['user11', 'user12', 'user100']
+print(choice(users))
+
+assist1()
+# print(helper.variable)
+while 'sldkjfl' == 'sdsdfsdf':
+    if 'sldkjfl' == 'sdsdfsdf':
+        print(f'skadflkasdjfhalsdkjhlaksdfjhlaksjdfh {useful()}')
+----
+
+ДЗ - создать в своем проекте виртуальное окружение 
 
 
 
