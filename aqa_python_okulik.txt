@@ -36,8 +36,6 @@ https://www.youtube.com/playlist?list=PLRVGb5te8vVGuLyHYIsn6xGoxUXoYrVjk
 
 1 - Стандарты PEP 20 - Дзен Python 
 
-
-
 PEP 8 -
 https://pythonworld.ru/osnovy/pep-8-rukovodstvo-po-napisaniyu-koda-na-python.html
 
@@ -56,8 +54,6 @@ https://pythonworld.ru/osnovy/pep-8-rukovodstvo-po-napisaniyu-koda-na-python.htm
 
 
 ************************************
-
-
 
 1 - Установка Python на Windows, Ubuntu, MacOs. Для чего нужен Pycharm и другие IDE
 
@@ -119,8 +115,6 @@ print("Hello!")
 ************************************
 
 2 - Git
-
-
 
 установка Git - 
 
@@ -227,8 +221,6 @@ https://training.github.com/downloads/ru/github-git-cheat-sheet
 
 2 - Github 
 
-
-
 теперь будем создавать репозиторий на github и забирать его на свой компьютер 
 
 github.com 
@@ -295,8 +287,6 @@ git push origin main
 
 2 - Для чего нужен Git_ Может, без него проще
 
-
-
 открыть папку из графического интерфейса в терминале - 
 - Linux - ПКМ > Open in Terminal
 - Windows - ПКМ + SHIFT > Открыть окно PowerShell здесь 
@@ -330,8 +320,6 @@ git и github - это разные вещи
 ************************************
 
 2 - Настройка SSH подключения к Github_ Сравнение с HTTPS подключением_ Windows, Linux, Mac
-
-
 
 git clone https://github.com/...................git
 
@@ -374,8 +362,6 @@ cd ~/.ssh
 ************************************
 
 3 - lesson_python_basics_1
-
-
 
 работать будем в VSCode - там есть бесплатный jupyter notebook
 
@@ -600,8 +586,6 @@ age: int = 42
 ************************************
 
 4 - lesson_python_basics_2
-
-
 
 Операторы присваивания - 
 
@@ -964,8 +948,6 @@ print(type(a))
 
 5 - lesson_python_basics_3
 
-
-
 Распаковка -
 
 Используется для того, чтобы распределить элементы коллекции (список, словарь, множество, кортеж) по отдельным переменным.  
@@ -1110,7 +1092,7 @@ name
 
 
 
-Строка ←→ список -
+Строка в список и список в строку -
 
 --
 my_string = 'some little text'
@@ -1201,8 +1183,6 @@ First word is qqqqq, second word is asd
 ************************************
 
 6 - conditions_n_loops
-
-
 
 Условия -
 
@@ -1402,8 +1382,6 @@ Sed vitae malesuada, libero eu, bibendum mauris.
 ************************************
 
 7 - loops_n_funcs
-
-
 
 while loop - цикл while -
 --
@@ -1662,8 +1640,6 @@ Product monitor price is 1000
 
 8 - generators_and_modules
 
-
-
 Generator function -
 --
 def generate_text(text1, text2):
@@ -1885,8 +1861,6 @@ while 'sldkjfl' == 'sdsdfsdf':
 ************************************
 
 9 - map_and_filter_and_datetime
-
-
 
 хорошая практика - писать в коде "if x is True:" а не "if x == True:", а лучше писать просто - "if x:" 
 
@@ -2191,8 +2165,6 @@ print(sp)
 ************************************
 
 10 - decorators_and_list_dict_comprehension
-
-
 
 Decorators - 
 --
@@ -2582,8 +2554,6 @@ zip() - создает список двухзначных кортежей, а 
 
 11 - python_classes
 
-
-
 Classes -
 --
 from abc import abstractmethod
@@ -2719,8 +2689,6 @@ class Group:
 ************************************
 
 12 - python_oop
-
-
 
 ООП(OOP) - Объектно ориентированное программирование
 
@@ -3057,12 +3025,58 @@ hello
 
 13 - python_tools
 
+with - (с) ключевое слово
+
+as - (как) ключевое слово 
+
+--
+data.txt 
+--
+first, line.
+second, line.
+third, line.
+----
+
+--
+files.py
+--
+import os
+
+# data_file = open('data.txt', 'r')
+# data_file.read()
+# print('sdfsdf' + 1)
+# data_file.close()
+
+base_path = os.path.dirname(__file__)
+# base_path = 'C:\\users\\username\\projects\\congenial_testers\\homework\\homework\\eugeny_okulik\\Lesson_13'
+# file_path = f'{base_path}/data.txt'
+file_path = os.path.join(base_path, 'data.txt')
+new_file_path = os.path.join(base_path, 'data2.txt')
+print(file_path)
 
 
-===
+def read_file():
+    with open(file_path, 'r') as data_file:
+        # print(data_file)
+        for line in data_file.readlines():
+            yield line
 
 
+for data_line in read_file():
+    with open(new_file_path, 'a') as new_file:
+        data_line = data_line.replace('.', '').replace(',', '')
+        new_file.write(data_line)
 
+homework_path = os.path.dirname(os.path.dirname(base_path))
+alina_file_path = os.path.join(homework_path, 'AlinaKravch', 'file.txt')
+print(alina_file_path)
+
+
+with open(alina_file_path) as alina_file:
+    print(alina_file.read())
+----
+
+00-10-00
 
 
 
