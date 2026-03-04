@@ -3108,6 +3108,17 @@ with open(alina_file_path) as alina_file:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 	
 
 
@@ -3115,6 +3126,7 @@ with open(alina_file_path) as alina_file:
 
 dz_okulik_aqa_7
 
+1 -
 Шифр цезаря
 Шифр Цезаря — один из древнейших шифров. При шифровании каждый символ заменяется другим, отстоящим от него в алфавите на фиксированное число позиций.
 
@@ -3125,7 +3137,12 @@ this is a test string -> ymnx nx f yjxy xywnsl
 Напишите две функции - encode и decode принимающие как параметр строку и число - сдвиг. Знаки препинания должны сохраниться.
 
 --
+str = "abc"
 
+def encode(str, x):
+    for i in str:
+        if x.isalpha():
+            ...
 
 
 
