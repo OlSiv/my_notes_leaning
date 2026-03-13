@@ -1,13 +1,37 @@
 
 telegram - my_coding - 09.03.2026 (15:41)
 
+онлайн-компилятор C++ -
+https://www.onlinegdb.com/online_c++_compiler
 
-
-******************************************
+************************************************************************
 
 01 - 
 
+Visual Studio - скачать версию "Community" -
+https://visualstudio.microsoft.com/ru/vs/
+
+Пустой проект 
+
+--
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    cout << "Hello world!";
+
+    return 0;
+}
+----
+
+************************************************************************
+
+02 - 
+
 =
+
+
 
 
 
