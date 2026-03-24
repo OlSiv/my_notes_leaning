@@ -2466,6 +2466,26 @@ https://www.veracrypt.fr/en/Downloads.html
 
 ---
 
+Задача LibreSSL & OpenSSL
+
+OpenSSL - Open Source криптографическая библиотека.
+https://www.openssl.org/
+
+LibreSSL - форк (ответвление) от библиотеки OpenSSL, развиваемое в рамках проекта OpenBSD
+https://www.libressl.org/
+
+далее - PDF 16_urok в -
+telegram - my_coding - 24.03.2026 (19:33)
+
+*****************************************************
+
+17_Инфраструктура открытых ключей (PKI). Как работает TSL SSL шифрование в деле -
+
+=
+
+
+
+
 
 
 
