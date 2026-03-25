@@ -2363,6 +2363,9 @@ VeraCrypt (https://www.veracrypt.fr/en/Home.html) - Open Source ПО для ши
 Скачать VeraCrypt можно с официальной страницы (не качайте из неизвестных источников) -
 https://www.veracrypt.fr/en/Downloads.html
 
+далее - в PDF -
+telegram - my_coding - 22.03.2026 (21:22)
+
 *****************************************************
 
 16 - Как работает ассиметричное шифрование в Telegram и при чём тут электронная подпись (ЭП) -
