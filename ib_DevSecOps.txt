@@ -1,26 +1,58 @@
 
 https://www.youtube.com/@cisconeslabo/courses
 
+Приглашаем на курcы с трудоустройством (если сайт не открывается, используйте VPN):
+
+Linux с нуля до DevOps / DevNet / Linux Unhatched: 
+https://edu-cisco.org/courses/lpi-linux-unhatched/
+
+Этичный хакер / Ethical Hacker: 
+https://edu-cisco.org/courses/ethical-hacker/
+
+Введение в кибербезопасность / Introduction to Cybersecurity:
+https://edu-cisco.org/courses/cybersecurity/
+
+Введение в DevOps / DevNet: 
+https://edu-cisco.org/courses/devnet-python-apic-em/
+
+CCNA Маршрутизация и Коммутация / CCNA Routing & Switching: 
+https://edu-cisco.org/courses/cisco-ccna-routing-and-switching/
+
+Программируемые системы DevOps / DevNet: 
+https://edu-cisco.org/courses/cisco-devnet-devops/
+
+Основы Linux LPI / Linux Essentials LPI: 
+https://edu-cisco.org/courses/lpi-linux-essentials/
+
+Основы программирования Python / Programming Essentials in Python: 
+https://edu-cisco.org/courses/python-programming-essentials/
+
+СCNA / Network Security: 
+https://edu-cisco.org/courses/cisco-ccna-security/
+
 
 
 жд4тб - 1_CODING - DevSecOps
 
 
 
-1 - Linux с нуля (9 видео) - 
+1 - Linux с нуля 
+(9 видео) - 
 https://www.youtube.com/watch?v=bZ7VHRcldNU&list=PLMiVLClzZDbQuqtIAN-fBdofmksy8gP3E
 
-2 - Кибербезопасность с нуля до аналитика DevSecOps (25 + 3 запланированных видео) - 
+2 - Кибербезопасность с нуля до аналитика DevSecOps 
+(25 + 3 запланированных видео) - 
 https://www.youtube.com/playlist?list=PLMiVLClzZDbS64ffoWuTHFwX9W2X_90qZ
 
-3 - Введение в DevOps / DevNet (27 + 2 запланированных видео) - 
+3 - Введение в DevOps / DevNet 
+(27 + 2 запланированных видео) - 
 https://www.youtube.com/watch?v=kM_tcfmd_EE&list=PLMiVLClzZDbTWjlmGSU-Eg9OpIpRkarZS
 - это нужно скачивать, на жд4тб этого нет
 
-4 - Сетевые технологии с нуля: база (27 уроков) - 
+4 - Сетевые технологии с нуля: база 
+(27 уроков) - 
 https://www.youtube.com/watch?v=NlM6JCEm3ig&list=PLMiVLClzZDbRQwRtNOcvj4fe2ujIW3Akl
 - это нужно скачивать, на жд4тб этого нет
-
 
 
 Приветствую, Константин! Прослушав (возможно поняв) этот материал, потом не имея сертификата можно устроиться на работу, или это просто спецкурс в профильном вузе?
@@ -527,6 +559,8 @@ Linux с нуля
 
 все материалы также дублируются в телеграм-канал 
 
+хороший специалист очень мало работает - потому что он всё уже автоматизировал с самого начала 
+
 установить Ubuntu паралельно с Windows -
 https://blog.sedicomm.com/2022/05/09/kak-ustanovit-linux-ubuntu-ryadom-parallelno-s-windows-10-podrobnaya-instrukcziya-dlya-nachinayushhih/
 
@@ -572,16 +606,16 @@ sudo -s
 su -
 ----
 
-
-
-
-
-
 --
 su 
 su -l 
 su --login 
 ----
+
+когда мы переключаемся на root, то в командной строке перед вводом команды стоит не $ а # 
+
+домашняя директория root (суперпользователя) - 
+/root
 
 если под суперпользователем нужно выполнить только одну команду - 
 --
@@ -589,7 +623,56 @@ sudo
 sudo sl
 ----
 
-12-00
+--
+cd ~/Documents
+----
+- ~ это путь к домашней директории, то есть так мы указываем полный абсолютный путь (написать просто /Documents можно только перейдя в домашнюю директорию пользователя, и это будет относительный путь, но когда мы пишем ~/Documents то мы можем перейти из любого места, где бы мы не находились в данный момент, и это абсолютный путь)
+
+--
+ls -l hello.sh
+----
+
+еще раз про права доступа - rwx rwx rwx -
+- собственник 
+- группа собственников 
+- все остальные 
+
+чейндж мод (изменить права доступа) - 
+--
+chmod [<SET><ACTION><PERMISSION>]... FILE 
+----
+
+кому мы выдаем (меняем, убираем) права доступа - 
+- u - владелец (user)
+- g - группа (group)
+- o - остальные (others)
+- a - все (all)
+
+[+] - добавить права доступа 
+[=] - четко указать 
+[-] - забрать права доступа
+
+добавить пользователю (user) право на запуск (x) файла hello.sh - 
+--
+chmod u+x hello.sh
+----
+
+поменять владельца на файл или директорию - 
+--
+chown [OPTIONS] [OWNER] FILE 
+----
+
+поменяем владельца на root, потребуется пароль - 
+--
+sudo chown root hello.sh 
+----
+
+
+
+30-00
+
+
+
 
 
 
