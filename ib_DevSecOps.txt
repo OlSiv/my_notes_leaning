@@ -54,6 +54,9 @@ https://www.youtube.com/watch?v=kM_tcfmd_EE&list=PLMiVLClzZDbTWjlmGSU-Eg9OpIpRka
 https://www.youtube.com/watch?v=NlM6JCEm3ig&list=PLMiVLClzZDbRQwRtNOcvj4fe2ujIW3Akl
 - это нужно скачивать, на жд4тб этого нет
 
+бесплатные материалы - 
+https://edu-cisco.org/free-education/
+
 
 Приветствую, Константин! Прослушав (возможно поняв) этот материал, потом не имея сертификата можно устроиться на работу, или это просто спецкурс в профильном вузе?
 -
@@ -62,6 +65,11 @@ https://www.youtube.com/watch?v=NlM6JCEm3ig&list=PLMiVLClzZDbRQwRtNOcvj4fe2ujIW3
 скриншот с уроками - telegram - my_sisadmin_linux - 26.03.2026 (18:49)
 
 !!! - повторять всё за автором
+
+войти в Windows в директории WSL - 
+--
+explorer.exe .
+----
 
 
 
@@ -667,9 +675,69 @@ chown [OPTIONS] [OWNER] FILE
 sudo chown root hello.sh 
 ----
 
+если меняем права для root, суперпользователя, привелигированного пользователя - то нужно писать - sudo
+
+просмотр содержимого файла - cat (concatenate, связывать, объединять) - 
+--
+cat hello.sh 
+----
+
+когда файл большой и весь текст не помещается на экране - использовать head (первые 10 строк в файле) и tail (последние 10 строк в файле) -
+--
+head [OPTIONS] [FILE]
+tail [OPTIONS] [FILE]
+----
+
+--
+head hello.sh
+----
+
+--
+tail hello.sh
+----
+
+--
+head /var/log/syslog
+----
+
+если нужно вручную прописать количество строк - 
+--
+head -n 5 hello.sh
+----
+
+--
+tail -n 12 hello.sh
+----
+
+если нужно отфильтровать вывод, в данном примере показать только то, где есть значение "Gigabit" - 
+--
+cat /var/log/syslog | grep Gigabit
+----
+
+найти биржи фриланса - fiverr.com и т.п. - и там зарабатывать 
+в поиске - linux 
+и потом уже там смотреть 
+
+************************************************************************
+
+Linux с нуля 
+5 - 
+
+копирование файлов - cp (copyng files) -
+--
+cp [OPTIONS] SOURCE DESTINATION
+----
+- опции необязательны, указывается откуда и куда скопировать 
+
+--
+cp /home/w/for_tests.txt /home/w/my_files/
+----
+
+--
+cp /etc/passwd .
+----
 
 
-30-00
 
 
 
@@ -682,13 +750,4 @@ sudo chown root hello.sh
 
 
 
-
-
-
-
-
-
-
-
-
-
+00-10-20
