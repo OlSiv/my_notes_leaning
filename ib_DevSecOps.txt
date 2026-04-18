@@ -3,6 +3,11 @@
 
 https://www.youtube.com/@cisconeslabo/courses
 
+проходить в таком порядке - 
+- linux с нуля 
+- введение в кибербезопасность 
+- введение в DevOps
+
 
 
 ************************************************************************
@@ -1029,9 +1034,6 @@ Linux с нуля
 
 15_Python с нуля до DevOps на практике за 1,5 часа -
 
-- linux с нуля 
-- введение в кибербезопасность 
-- введение в DevOps
 
 каждый вышеуказанный модуль состоит из примерно - 10 лекций и 20 практических мастер-классов
 
@@ -1171,6 +1173,77 @@ The value of pi is 3.14.
 ------
 - это не округление, это обрезание
 
+массивы в Python 
+
+- список - упорядоченный массив элементов 
+
+нумерация элементов списка начинается не с 1, а с 0
+
+--
+hostnames = ["R1", "R2", "R3", "S1", "S2"]
+
+print(type(hostnames))
+print(len(hostnames))
+print(hostnames)
+print(hostnames[-1])
+del hostnames[-1]
+print(hostnames)
+----
+<class 'list'>
+5
+['R1', 'R2', 'R3', 'S1', 'S2']
+S2
+['R1', 'R2', 'R3', 'S1']
+------
+
+- словарь - dict() - неупорядоченный набор пар ключ-значение 
+
+--
+ipAddress = {"R1":"10.1.1.1", "R2":"10.2.2.1", "R3":"10.3.3.1"}
+
+print(ipAddress)
+print(type(ipAddress))
+print(ipAddress["R1"])
+
+print(ipAddress.keys())
+print(ipAddress.values())
+print(ipAddress.items())
+----
+
+внутри словаря можно разместить список -
+--
+ipAddress = {"R1": ["a", "b", "c"], 
+             "R2": [1, 2, 3], 
+			 "R3": [1000, 2000, 3000]}
+
+print(ipAddress["R1"])
+----
+['a', 'b', 'c']
+------
+
+либо можно добавить список так - 
+--
+ipAddress = {"R1":"10.1.1.1", "R2":"10.2.2.1", "R3":"10.3.3.1"}
+
+ipAddress["R3"] = ["10.3.3.1", "10.3.3.2", "10.3.3.3"]
+print(ipAddress)
+----
+{'R1': '10.1.1.1', 'R2': '10.2.2.1', 'R3': ['10.3.3.1', '10.3.3.2', '10.3.3.3']}
+------
+
+функция input() -
+--
+firstName = input("What is your name?  ")
+
+print("Hello " + firstName + "!")
+----
+Hello Alex!
+------
+
+--
+persona-info.py 
+--
+firstName = input("What is your name?  ")
 
 
 
@@ -1179,11 +1252,4 @@ The value of pi is 3.14.
 
 
 
-
-
-
-
-
-
-
-00-46-00
+01-01-00
