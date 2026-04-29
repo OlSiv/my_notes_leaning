@@ -1247,7 +1247,7 @@ mkdir ~/backup
 --
 mkdir ~/target
 ----
-                  
+             
 И создадим хотя бы какой-нибудь файлик внутри целевого каталога -
 --
 touch ~/target/your-life.txt
