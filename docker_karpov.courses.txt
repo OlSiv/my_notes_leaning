@@ -234,6 +234,3 @@ winpty docker run --rm -it ubuntu
 
 
 
-
-
-
