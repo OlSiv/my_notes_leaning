@@ -906,7 +906,13 @@ Jira автоматически не проверяется. Слияние PR �
 «Принято», «Готово» или «Ок, иди дальше» — это зачёт. Вернись в Jira и переведи тренировочную задачу в «Выполнено».
 
 2 - Если нужны исправления
-Исправь файл в той же ветке VS Code. Сохрани Ctrl+S → + у файла → новое сообщение → стрелка справа от Commit → Commit & Push. Повторно отправь тот же PR на платформе.
+Исправь файл в той же ветке VS Code. 
+Сохрани Ctrl+S → 
+под Changes у названия файла справа нажать + → 
+новое сообщение → 
+стрелка справа от Commit → 
+Commit & Push. 
+Повторно отправь тот же PR на платформе.
 
 
 
@@ -1501,7 +1507,6 @@ CREATE TABLE users (
 );
 
 
-
 CREATE TABLE products (
     id INT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -1515,7 +1520,7 @@ CREATE TABLE orders (
     id INT PRIMARY KEY,
     user_id INT,
     order_date TIMESTAMPTZ NOT NULL,
-    status INT,
+    status INT
 );
 
 
@@ -1524,27 +1529,9 @@ CREATE TABLE order_items (
     product_id INT,
     quantity SMALLINT NOT NULL,
     price_at_purchase DECIMAL(10,2) NOT NULL,
-    PRIMARY KEY (order_id, product_id),
+    PRIMARY KEY (order_id, product_id)
 );
 ----
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1553,14 +1540,95 @@ CREATE TABLE order_items (
 DML отвечает на вопрос:
 Какие строки лежат внутри таблицы?
 
-=
+
+
+INSERT INTO
+Добавляет строку в таблицу и заполняет ее значениями
+
+--
+INSERT INTO users (id, name, age, email, country, is_active, created_at)
+VALUES (16, 'Paul', 38, 'paul@mail.com', 'USA', true, '2023-03-01');
+----
+Можно оставить is_active пустым — подставится DEFAULT
+
+Объяснение: “Тут я добавил нового пользователя”
 
 
 
+UPDATE
+Обновляет значение. В set указывается столбец и его значение
+--
+UPDATE users
+SET is_active = false
+WHERE email IS NULL;
+----
+Важно:
+SET = что меняем
+WHERE = у кого меняем
+Если убрать WHERE, обновишь вообще всех.
 
 
 
+DELETE vs Truncate
 
+
+DELETE — удаляет “аккуратно по условию”
+--
+DELETE FROM users
+WHERE age < 20;
+----
+
+
+TRUNCATE — удали все строки из таблицы мгновенно
+--
+TRUNCATE TABLE users;
+----
+
+Запомни:
+DELETE = можно выборочно + медленнее
+TRUNCATE = всё сразу + быстро + без WHERE
+
+
+
+06-2
+
+задание на заполнение таблиц - 
+
+--
+dml.sql
+--
+INSERT INTO users (id, name, age, email, country, is_active, created_at)
+VALUES (1, 'Paul', 20, 'paul@mail.com', 'USA', true, '2023-03-01'),
+(2, 'John', 22, 'john@mail.com', 'France', true, '2023-03-04'),
+(3, 'Roy', 25, 'roy@mail.com', 'China', true, '2023-04-08'),
+(4, 'Bill', 30, 'bill@mail.com', 'UK', true, '2025-03-01'),
+(5, 'Mary', 35, 'mary@mail.com', 'Japan', true, '2026-11-10');
+
+************************
+
+
+INSERT INTO users (id, name, age, email, country, is_active, created_at)
+VALUES (1, 'Paul', 20, 'paul@mail.com', 'USA', true, '2023-03-01'),
+(2, 'John', 22, 'john@mail.com', 'France', true, '2023-03-04'),
+(3, 'Roy', 25, 'roy@mail.com', 'China', true, '2023-04-08'),
+(4, 'Bill', 30, 'bill@mail.com', 'UK', true, '2025-03-01'),
+(5, 'Mary', 35, 'mary@mail.com', 'Japan', true, '2026-11-10');
+
+
+INSERT INTO users (id, name, age, email, country, is_active, created_at)
+VALUES (1, 'Paul', 20, 'paul@mail.com', 'USA', true, '2023-03-01'),
+(2, 'John', 22, 'john@mail.com', 'France', true, '2023-03-04'),
+(3, 'Roy', 25, 'roy@mail.com', 'China', true, '2023-04-08'),
+(4, 'Bill', 30, 'bill@mail.com', 'UK', true, '2025-03-01'),
+(5, 'Mary', 35, 'mary@mail.com', 'Japan', true, '2026-11-10');
+
+
+INSERT INTO users (id, name, age, email, country, is_active, created_at)
+VALUES (1, 'Paul', 20, 'paul@mail.com', 'USA', true, '2023-03-01'),
+(2, 'John', 22, 'john@mail.com', 'France', true, '2023-03-04'),
+(3, 'Roy', 25, 'roy@mail.com', 'China', true, '2023-04-08'),
+(4, 'Bill', 30, 'bill@mail.com', 'UK', true, '2025-03-01'),
+(5, 'Mary', 35, 'mary@mail.com', 'Japan', true, '2026-11-10');
 
 
 
